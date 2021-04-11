@@ -79,7 +79,7 @@ $db['default'] = array(
 	'username' => 'nnfproco_user',
 	'password' => '@Devel0ver',
 	'database' => 'vidacafe_db',
-	'dbdriver' => 'mysqli',
+	'dbdriver' => 'mysql',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
