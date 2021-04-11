@@ -15,6 +15,24 @@
 .my-scroller::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
+
+.my-star{
+    float: right;
+    color: #f7b924;
+    font-size: 25px;
+    margin-right: -10px;
+    cursor: pointer;
+}
+
+.my-unstar{
+    float: right;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #f7b924;
+    font-size: 25px;
+    margin-right: -10px;
+    cursor: pointer;
+}
 </style>
 
 <div class="app-page-title">
@@ -36,6 +54,7 @@
         <div class="mb-3 col-md-4 row" style="margin:0">
             <div class="main-card col-md-12 card">
                 <div class="card-body">
+                    <a href="<?=site_url('admin/menu/favorite/').$value['id']?>"><i class="fa fa-star fa-w-20 btn-icon-wrapper <?=!empty($value['special'])? 'my-star' : 'my-unstar' ;  ?>"> </i></a>
                     <h5 class="card-title"><?=!empty($value['name'])? $value['name'] : '' ;  ?></h5>
                     <h6 class="mb-0 card-subtitle">Rp<?=!empty($value['price'])? number_format($value['price'],2,',','.') : '' ;  ?></h6>
                 </div>
@@ -44,15 +63,19 @@
                     text-align: end;
                     padding-right: 0;
                     width: 100%;">
-                    <button class="btn-icon btn-icon-only btn btn-outline-alternate" onclick="editAction(<?=!empty($value['id'])? $value['id'] : '' ;  ?>)"><i class="fa fa-edit fa-w-20 btn-icon-wrapper"> </i></button>
-                    <button class="btn-icon btn-icon-only btn btn-outline-danger" onclick="deleteAction(<?=!empty($value['id'])? $value['id'] : '' ;  ?>)"><i class="fa fa-trash fa-w-20 btn-icon-wrapper"> </i></button>
+                    <button class="btn-icon btn-icon-only btn btn-outline-alternate" onclick="editAction(<?=!empty($value['id'])? $value['id'] : '' ;  ?>)" data-toggle="tooltip" data-original-title="Edit">
+                        <i class="fa fa-edit fa-w-20 btn-icon-wrapper"> </i>
+                    </button>
+                    <button class="btn-icon btn-icon-only btn btn-outline-danger" onclick="deleteAction(<?=!empty($value['id'])? $value['id'] : '' ;  ?>)" data-toggle="tooltip" data-original-title="Delete">
+                        <i class="fa fa-trash fa-w-20 btn-icon-wrapper"> </i>
+                    </button>
                 </div>
             </div>
         </div>
         <?php endforeach; ?>
     </div>
     <div class="col-md-1" style="height: 100px; width: 100%; margin:0; padding: 0; text-align: center">
-        <button type="button" class="btn btn-secondary" onclick="addAction()" style="
+        <button type="button" class="btn btn-primary" onclick="addAction()" style="
             border-radius: 50%;
             width: 60px;
             height: 60px;

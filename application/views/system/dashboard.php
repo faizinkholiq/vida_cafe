@@ -12,7 +12,6 @@
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="<?=base_url('assets/admin/')?>css/main.css" rel="stylesheet">
-    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="<?=base_url('assets/admin/')?>scripts/main.js"></script>
     <script type="text/javascript" src="<?=base_url('assets/admin/')?>scripts/jquery.min.js"></script>
 </head>

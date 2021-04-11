@@ -33,7 +33,7 @@ class Menu extends CI_Controller {
             $origin_file = $_FILES['file'];
             $filename = $origin_file['name']; 
             $config['upload_path'] = './assets/images/menu';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|JPG|JPEG|svg';
             $config['file_name'] = $filename;
             $config['overwrite'] = true;
             $config['max_size'] = 2000;
@@ -205,5 +205,37 @@ class Menu extends CI_Controller {
         $nd["price"] = $this->input->post('price');     
 
         return $nd;
+    }
+
+    public function favorite($id)
+    {
+        $detail = $this->menu_model->detail($id);
+        if($detail){
+            $nd['id'] = $id;
+            $nd['special'] = $detail['special'] == 0? 1 : 0;
+
+            if($this->menu_model->edit($nd)){
+                $data = [
+                    'success' => 1,
+                    'message' => 'Update data success ',
+                ];
+            }else{
+                $data = [
+                    'success' => 0,
+                    'message' => 'Update data failed ',
+                ];
+            }
+        }else{
+            $data = [
+                'success' => 0,
+                'message' => 'Invalid ID',
+            ];
+        }
+
+        if($data['success'] === 1){
+            redirect('admin/menu/');
+        }else{
+            echo json_encode($data);
+        }
     }
 }

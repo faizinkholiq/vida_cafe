@@ -27,23 +27,47 @@
                             </div>
                         </div>
                     </div>
-                    <div class="position-relative form-group">
-                        <label for="fileLogo" class="">Logo</label>
-                        <div style="
-                            box-shadow: 1px 1px 10px 1px #ddd;
-                            border-radius: 10px;
-                            padding: 15px;
-                            width: 200px;
-                            height: 180px;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            margin: 10px 10px 20px;
-                        ">
-                            <img style="width: 100%;" src="<?=!empty($detail['logo'])? base_url('assets/images/profile/').$detail['logo'] : '' ; ?>" />
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <div class="position-relative form-group">
+                                <label for="fileLogo" class="">Logo</label>
+                                <div style="
+                                    box-shadow: 1px 1px 10px 1px #ddd;
+                                    border-radius: 10px;
+                                    padding: 15px;
+                                    width: 200px;
+                                    height: 200px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    margin: 10px 10px 20px;
+                                ">
+                                    <img style="width: 100%; height: 100%; object-fit: contain;" src="<?=!empty($detail['logo'])? base_url('assets/images/profile/').$detail['logo'] : '' ; ?>" />
+                                </div>
+                                <div class="col-sm-10"><input name="logo" id="fileLogo" type="file" class="form-control-file">
+                                    <small class="form-text text-muted">This is file for photo.</small>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-10"><input name="logo" id="fileLogo" type="file" class="form-control-file">
-                            <small class="form-text text-muted">This is file for photo.</small>
+                        <div class="col-md-8">
+                            <div class="position-relative form-group">
+                                <label for="fileCover" class="">Cover</label>
+                                <div style="
+                                    box-shadow: 1px 1px 10px 1px #ddd;
+                                    border-radius: 10px;
+                                    width: 400px;
+                                    height: 200px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    margin: 10px 10px 20px;
+                                ">
+                                    <img style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" src="<?=!empty($detail['cover'])? base_url('assets/images/profile/').$detail['cover'] : '' ; ?>" />
+                                </div>
+                                <div class="col-sm-10"><input name="cover" id="fileCover" type="file" class="form-control-file">
+                                    <small class="form-text text-muted">This is file for cover.</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="position-relative form-group">
@@ -53,6 +77,10 @@
                     <div class="position-relative form-group">
                         <label for="txtDescription" class="">Description</label>
                         <textarea name="description" id="txtDescription" class="form-control"><?=!empty($detail['description'])? $detail['description'] : '' ; ?></textarea>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="txtStory" class="">Story</label>
+                        <textarea name="story" id="txtStory" class="form-control"><?=!empty($detail['story'])? $detail['story'] : '' ; ?></textarea>
                     </div>
                     <div class="position-relative form-group">
                         <label for="exampleAddress" class="">Address</label>
