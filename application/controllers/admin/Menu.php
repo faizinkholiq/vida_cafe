@@ -29,9 +29,11 @@ class Menu extends CI_Controller {
     {
         $nd = $this->get_input();
         $filename = null;
-        if(!empty($_FILES)){
+        if($_FILES['file']['error'] == 0){        
             $origin_file = $_FILES['file'];
-            $filename = $origin_file['name']; 
+            $arr_filename = explode('.', $origin_file['name']);
+            $filename = date('YmdHis').'.'.$arr_filename[count($arr_filename) - 1];
+
             $config['upload_path'] = './assets/images/menu';
             $config['allowed_types'] = 'gif|jpg|png|jpeg|JPG|JPEG|svg';
             $config['file_name'] = $filename;

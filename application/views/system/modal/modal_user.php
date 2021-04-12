@@ -1,23 +1,32 @@
-<div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Menu</h5>
-                <button type="button" class="close" onclick="showModal('#menuModal', false)">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="<?=site_url('admin/menu/save')?>" id="form_menu" method="POST" enctype="multipart/form-data">
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userModalLabel">Create New User</h5>
+                    <button type="button" class="close" onclick="showModal('#userModal', false)">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?=site_url('admin/user/save')?>" id="form_user" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <input id="idMenu" type="hidden" name="id" />
+                    <input id="idUser" type="hidden" name="id" />
                     <div class="position-relative form-group">
                         <label for="tbName" class="">Name</label>
-                        <input id="tbName" name="name" placeholder="Name" type="text" class="mb-2 form-control"
-                            required>
+                        <input name="name" id="tbName" placeholder="Your Name" type="text" class="mb-2 form-control" required>
                     </div>
                     <div class="position-relative form-group">
-                        <label for="tbPrice" class="">Price</label>
-                        <input id="tbPrice" name="price" placeholder="Rp." type="text" class="mb-2 form-control">
+                        <label for="tbUsername" class="">Username</label>
+                        <input name="username" id="tbUsername" placeholder="Username" type="text" class="mb-2 form-control" required>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="psPassword" class="">Password</label>
+                        <input name="password" id="psPassword" placeholder="Password" type="password" class="mb-2 form-control" required>
+                    </div>
+                    <div class="position-relative form-group"><label for="slcRole" class="">Role</label>
+                        <select name="role" id="slcRole" class="form-control">
+                            <option value="owner">Owner</option>
+                            <option value="member">Member</option>
+                        </select>
                     </div>
                     <div class="position-relative form-group">
                         <label for="fileMenu" class="">File</label>
@@ -34,26 +43,24 @@
                         ">
                             <img style="width: 100%; height: 100%; object-fit: cover;" src="" />
                         </div>
-                        <div class="col-sm-10"><input name="file" id="fileMenu" type="file" class="form-control-file">
+                        <div class="col-sm-10"><input name="file" id="fileUser" type="file" class="form-control-file">
                             <small class="form-text text-muted">This is file for photo.</small>
                         </div>
                     </div>
-                    <div class="position-relative form-group">
-                        <label for="txtDescription" class="">Description</label>
-                        <textarea name="description" id="txtDescription" class="form-control"></textarea>
+                    <div class="position-relative form-check"><label class="form-check-label">
+                        <input id="cbActive" name="active" type="checkbox" class="form-check-input" checked="true" value="1"> Active</label>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
-                        onclick="showModal('#menuModal', false)">Close</button>
+                    <button type="button" class="btn btn-secondary" onclick="showModal('#userModal', false)">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="menuModalLabel"
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

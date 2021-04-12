@@ -1,32 +1,20 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-
- class User_model extends CI_Model {
- 
-    public function check_user($data)
-    {   
-        $check = $this->db->get_where('user', "username = '{$data['username']}' AND password= '{$data['password']}'");
-
-        if($check->num_rows() > 0){
-            return $check->row_array()['id'];
-        }else{
-            return false;
-        }
-    }
-
+ class Inbox_model extends CI_Model {
+    
     public function list()
     {
-        return $this->db->select()->from('user')->order_by('id', 'desc')->get()->result_array();
+        return $this->db->select()->from('inbox')->order_by('id', 'desc')->get()->result_array();
     }
 
     public function detail($id)
     {
-        return $this->db->get_where('user', ['id'=>$id])->row_array();
+        return $this->db->get_where('inbox', ['id'=>$id])->row_array();
     }
 
     public function create($data)
     {
-        $this->db->insert('user', $data);
+        $this->db->insert('inbox', $data);
 
         return ($this->db->affected_rows()>0) ? true : false;
     }
@@ -36,7 +24,7 @@
         $this->db->trans_start();
         $this->db->where('id', $data['id']);
         unset($data['id']);
-        $this->db->update('user', $data);
+        $this->db->update('inbox', $data);
         $this->db->trans_complete();
 
         return ($this->db->trans_status() == FALSE) ? false : true;
@@ -45,7 +33,7 @@
     public function delete($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('user');
+        $this->db->delete('inbox');
         
         return ($this->db->affected_rows() > 0) ? true : false ;
     }

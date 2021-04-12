@@ -5,7 +5,7 @@
     padding: 0;
     width: 100%;
     overflow: auto;
-    max-height: 26rem;
+    max-height: 60vh;
 }
 .my-scroller::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */

@@ -32,7 +32,7 @@
                 </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="showModal('#galleryModal', false)">Close</button>
-                <button type="submit" class="btn btn-primary" onclick="submitAction()">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
             </form>
         </div>
@@ -43,7 +43,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Photo</h5>
+                <h5 class="modal-title">Delete Photo</h5>
                 <button type="button" class="close" onclick="showModal('#deleteModal', false)">
                     <span aria-hidden="true">&times;</span>
                 </button>   

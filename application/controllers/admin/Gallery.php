@@ -22,7 +22,7 @@ class Gallery extends CI_Controller {
     {
         $nd = [];
         
-        if(!empty($_FILES)){
+        if($_FILES['file']['error'] == 0){        
             $origin_file = $_FILES['file'];
             $arr_filename = explode('.', $origin_file['name']);
             $filename = date('YmdHis').'.'.$arr_filename[count($arr_filename) - 1];
