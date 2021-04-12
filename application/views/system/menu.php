@@ -108,6 +108,7 @@
 
     function addAction(){
         $('.preview-file').hide();
+        $('#form_menu')[0].reset();
         showModal('#menuModal', true)
     }
 
