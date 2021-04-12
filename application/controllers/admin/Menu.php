@@ -203,6 +203,7 @@ class Menu extends CI_Controller {
         $nd["id"] = $this->input->post('id');
         $nd["name"] = $this->input->post('name');     
         $nd["price"] = $this->input->post('price');     
+        $nd["description"] = $this->input->post('description');     
 
         return $nd;
     }

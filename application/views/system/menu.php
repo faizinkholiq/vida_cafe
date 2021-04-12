@@ -117,6 +117,7 @@
             $('#idMenu').val(row[0].id)
             $('#tbName').val(row[0].name)
             $('#tbPrice').val(row[0].price)
+            $('#txtDescription').val(row[0].description)
             
             if(row[0].photo != ""){
                 $('.preview-file').show();                
