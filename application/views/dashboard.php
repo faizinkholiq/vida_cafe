@@ -21,7 +21,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,600i,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-	<link rel="shortcut icon" type="<?=base_url('assets/images/profile/').$profile['logo'] ?>" href="Favicon_Image_Location"/>
+	<link rel="shortcut icon" type="image/jpg" href="<?=base_url('assets/images/profile/').$profile['logo'] ?>"/>
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="<?=base_url('assets/public/')?>css/animate.css">
@@ -35,14 +35,12 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="<?=base_url('assets/public/')?>css/style.css">
 
-	<!-- Modernizr JS -->
-	<script src="<?=base_url('assets/public/')?>js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
     	<!-- jQuery -->
-	<script src="<?=base_url('assets/public/')?>js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
 	</head>
 	<body>
 		
@@ -125,9 +123,10 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
 	</div>
-	
-	<!-- jQuery Easing -->
+	<script src="<?=base_url('assets/public/')?>js/jquery.min.js"></script>	
 	<script src="<?=base_url('assets/public/')?>js/jquery.easing.1.3.js"></script>
+	<!-- Modernizr JS -->
+	<script src="<?=base_url('assets/public/')?>js/modernizr-2.6.2.min.js"></script>
 	<!-- Bootstrap -->
 	<script src="<?=base_url('assets/public/')?>js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
@@ -138,6 +137,7 @@
 	<script src="<?=base_url('assets/public/')?>js/jquery.flexslider-min.js"></script>
 	<!-- Main -->
 	<script src="<?=base_url('assets/public/')?>js/main.js"></script>
+
 
     <script>
         var highlight_menu = "<?php echo !empty($highlight_menu)? $highlight_menu : '' ?>";
