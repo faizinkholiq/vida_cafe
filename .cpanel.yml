@@ -4,3 +4,7 @@ deployment:
     - export DEPLOYPATH=/home/nnfproco/vidacafe.nnf-pro.com
 
     - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
+
+    - cd /home/nnfproco/vidacafe.nnf-pro.com/assets/images/
+
+    - mkdir avatar gallery menu
