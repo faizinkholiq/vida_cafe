@@ -15,10 +15,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
-            <div class="card-header">Users
-                <div class="btn-actions-pane-right">
-                    <button class="btn btn-primary" onclick="addAction()"><span class="btn-icon-wrapper pr-2"><i class="fa fa-plus fa-w-20"></i></span>New User</button>
-                </div>
+            <div class="card-header">Mails
             </div>
             <div class="table-responsive">
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover">
@@ -26,40 +23,18 @@
                         <tr>
                             <th class="text-center">#</th>
                             <th>Name</th>
-                            <th class="text-center">Status</th>
+                            <th>Email</th>
                             <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($data as $key => $value): ?>
+                    <?php $num = 1; foreach($data as $key => $value): ?>
                         <tr>
-                            <td class="text-center text-muted">#<?=$value['id'] ?></td>
-                            <td>
-                                <div class="widget-content p-0">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left mr-3">
-                                            <div class="widget-content-left">
-                                                <img width="40" class="rounded-circle"
-                                                    src="<?=!empty($value['avatar'])? base_url('assets/images/avatar/').$value['avatar'] : '' ;  ?>" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="widget-content-left flex2">
-                                            <div class="widget-heading"><?=$value['name'] ?></div>
-                                            <div class="widget-subheading opacity-7"><?=$value['role'] ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                            <td class="text-center text-muted"><?=$num++ ?></td>
+                            <td><?=$value['name'] ?></td>
+                            <td><?=$value['email'] ?></td>
                             <td class="text-center">
-                                <?php if($value['active']): ?>
-                                    <div class="badge badge-success">Active</div>
-                                <?php else: ?>
-                                    <div class="badge badge-light">Inactive</div>
-                                <?php endif; ?>
-                            </td>
-                            <td class="text-center">
-                                <button onclick="editAction(<?=$value['id'] ?>)" class="mr-2 btn-icon btn-icon-only btn btn-outline-alternate"><i class="fa fa-edit fa-w-20 btn-icon-wrapper"> </i></button>
+                                <button onclick="viewAction(<?=$value['id'] ?>)" class="mr-2 btn-icon btn-icon-only btn btn-outline-primary"><i class="fa fa-eye fa-w-20 btn-icon-wrapper"> </i></button>
                                 <button onclick="deleteAction(<?=$value['id'] ?>)" class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="fa fa-trash fa-w-20 btn-icon-wrapper"> </i></button>
                             </td>
                         </tr>
@@ -89,29 +64,13 @@
         }
     }
 
-    function addAction(){
-        $('.preview-file').hide();
-        $('#form_user')[0].reset();
-        $('#cbActive').attr('checked', true)
-        showModal('#userModal', true)
-    }
-
-    function editAction(id){
+    function viewAction(id){
         let row = data.filter(a => a.id == id)
         if (row.length > 0) {
-            $('#idUser').val(row[0].id)
-            $('#tbName').val(row[0].name)
-            $('#tbUsername').val(row[0].username)
-            $('#psPassword').val(row[0].password)
-            $('#slcRole').val(row[0].role)
-            $('#cbActive').attr('checked', (row[0].active == 1)? true : false)
-            
-            if(row[0].avatar != ""){
-                $('.preview-file').show();                
-                $('.preview-file img').attr('src', base + '/assets/images/avatar/' + row[0].avatar)
-            }else{
-                $('.preview-file').hide();
-            }
+            $('#lbName').text(row[0].name)
+            $('#lbEmail').text(row[0].email)
+            $('#lbTime').text(row[0].time)
+            $('#lbMessage').text(row[0].message)
             showModal('#userModal', true)
         }
     }
