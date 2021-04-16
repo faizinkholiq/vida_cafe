@@ -210,12 +210,13 @@ class Menu extends CI_Controller {
         return $nd;
     }
 
-    public function favorite($id)
+    public function action($field, $id)
     {
         $detail = $this->menu_model->detail($id);
+
         if($detail){
             $nd['id'] = $id;
-            $nd['special'] = $detail['special'] == 0? 1 : 0;
+            $nd[$field] = $detail[$field] == 0? 1 : 0;
 
             if($this->menu_model->edit($nd)){
                 $data = [

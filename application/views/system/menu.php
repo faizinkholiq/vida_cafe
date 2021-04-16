@@ -16,21 +16,40 @@
     background: #FF0000;
 }
 
-.my-star{
+.right-action{
     float: right;
+    display: flex;
+}
+
+.right-action a{
+    margin-left: 12px;
+}
+
+.my-star{
     color: #f7b924;
     font-size: 25px;
-    margin-right: -10px;
     cursor: pointer;
 }
 
 .my-unstar{
-    float: right;
     -webkit-text-fill-color: white;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #f7b924;
     font-size: 25px;
-    margin-right: -10px;
+    cursor: pointer;
+}
+
+.my-love{
+    color: #e74c3c;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.my-unlove{
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #e74c3c;
+    font-size: 25px;
     cursor: pointer;
 }
 </style>
@@ -53,8 +72,11 @@
         <?php foreach($data as $key => $value): ?>
         <div class="mb-3 col-md-4 row" style="margin:0">
             <div class="main-card col-md-12 card">
-                <div class="card-body">
-                    <a href="<?=site_url('admin/menu/favorite/').$value['id']?>"><i class="fa fa-star fa-w-20 btn-icon-wrapper <?=!empty($value['special'])? 'my-star' : 'my-unstar' ;  ?>"> </i></a>
+                <div class="card-body" style="padding-left:0; padding-right:5px;">
+                    <div class="right-action">
+                        <a href="<?=site_url('admin/menu/action/special/').$value['id']?>"><i class="fa fa-star fa-w-20 btn-icon-wrapper <?=!empty($value['special'])? 'my-star' : 'my-unstar' ;  ?>"> </i></a>
+                        <a href="<?=site_url('admin/menu/action/favorite/').$value['id']?>"><i class="fa fa-heart fa-w-20 btn-icon-wrapper <?=!empty($value['favorite'])? 'my-love' : 'my-unlove' ;  ?>"> </i></a>
+                    </div>
                     <h5 class="card-title"><?=!empty($value['name'])? $value['name'] : '' ;  ?></h5>
                     <h6 class="mb-0 card-subtitle">Rp<?=!empty($value['price'])? number_format($value['price'],2,',','.') : '' ;  ?></h6>
                 </div>
