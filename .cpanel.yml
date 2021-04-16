@@ -3,6 +3,8 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/nnfproco/vidacafe.nnf-pro.com
 
+    - /usr/bin cp /home/nnfproco/vidacafe/assets/images/* $DEPLOYPATH/assets/images/
+
     - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
 
     - cd /home/nnfproco/vidacafe.nnf-pro.com/assets/images/
