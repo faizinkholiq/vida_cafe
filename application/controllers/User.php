@@ -6,38 +6,35 @@ class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('session');
 		$this->load->model('user_model');
+		$this->load->model('home_model');
     }
 
     function login(){
 		if ($this->session->userdata('sess_data') == TRUE) {
-            redirect('vessel');
+            redirect('admin/home');
         }else{
             $nd['username'] = $this->input->post('username');
             $nd['password'] = $this->input->post('password');
-            
-            if($check = $this->user_model->check_user($nd)){
-                $data = [
-                    'success' => 1,
-                    'message' => 'Login success',
-                ];
-    
-                $data_session = array(
-                    'id_user' => $check,
-                    'login' => true
-                );
-    
-                $this->session->set_userdata('sess_data', $data_session);
-    
+
+            if(!empty($nd['username']) && !empty($nd['password'])){
+                if($check = $this->user_model->check_user($nd)){
+                    $data_session = $this->user_model->detail($check);
+                    $this->session->set_userdata('sess_data', $data_session);
+
+                    redirect('admin/home');
+        
+                }else{
+                    $this->session->set_flashdata('msg', 'Username / Password is wrong');
+                    redirect('user/login');
+                }
+        
+                echo json_encode($data);
             }else{
-                $data = [
-                    'success' => 0,
-                    'message' => 'Login failed',
-                ];
+                $d['profile'] = $this->home_model->detail(1);
+                $this->load->view('system/login', $d);
             }
-    
-            echo json_encode($data);
+            
         }
     }
 

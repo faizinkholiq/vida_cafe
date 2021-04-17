@@ -10,10 +10,16 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-        $d['highlight_menu'] = "home";
-        $d['content_view'] = 'system/index';
-        $d['detail'] = $this->home_model->detail(1);
-		$this->load->view('system/dashboard', $d);
+        if($this->session->userdata('sess_data')){
+            $d['user'] = $this->session->userdata('sess_data');
+            $d['highlight_menu'] = "home";
+            $d['content_view'] = 'system/index';
+            $d['detail'] = $this->home_model->detail(1);
+            $this->load->view('system/dashboard', $d);
+        }else{
+            $this->session->set_flashdata('msg', 'Session expired');
+            redirect('user/login');
+        }
     }
     
     public function save()

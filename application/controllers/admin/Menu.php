@@ -9,13 +9,19 @@ class Menu extends CI_Controller {
     }
 
 	public function index()
-	{
-        $d['highlight_menu'] = "menu";
-        $d['content_view'] = 'system/menu';
-        $d['modal_view'] = 'system/modal/modal_menu';
-        $d['data'] = $this->menu_model->list();
+	{    
+         if($this->session->userdata('sess_data')){
+            $d['user'] = $this->session->userdata('sess_data');
+            $d['highlight_menu'] = "menu";
+            $d['content_view'] = 'system/menu';
+            $d['modal_view'] = 'system/modal/modal_menu';
+            $d['data'] = $this->menu_model->list();
 
- 		$this->load->view('system/dashboard', $d);
+            $this->load->view('system/dashboard', $d);
+        }else{
+            $this->session->set_flashdata('msg', 'Session expired');
+            redirect('user/login');
+        }
     }
 
     public function list()

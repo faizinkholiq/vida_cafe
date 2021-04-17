@@ -9,13 +9,20 @@ class User extends CI_Controller {
     }
 
 	public function index()
-	{
-        $d['highlight_menu'] = "user";
-        $d['content_view'] = 'system/user';
-        $d['modal_view'] = 'system/modal/modal_user';
-        $d['data'] = $this->user_model->list();
+	{ 
+        if($this->session->userdata('sess_data')){
+            $d['user'] = $this->session->userdata('sess_data');
+            $d['highlight_menu'] = "user";
+            $d['content_view'] = 'system/user';
+            $d['modal_view'] = 'system/modal/modal_user';
+            $d['data'] = $this->user_model->list();
 
- 		$this->load->view('system/dashboard', $d);
+            $this->load->view('system/dashboard', $d);
+            
+        }else{
+            $this->session->set_flashdata('msg', 'Session expired');
+            redirect('user/login');
+        }
     }
 
     public function save()
@@ -121,7 +128,7 @@ class User extends CI_Controller {
         $nd["username"] = $this->input->post('username');     
         $nd["password"] = $this->input->post('password');     
         $nd["role"] = $this->input->post('role');     
-        $nd["active"] = $this->input->post('active');     
+        $nd["active"] = !empty($this->input->post('active'))? $this->input->post('active') : 0;     
 
         return $nd;
     }

@@ -12,6 +12,7 @@
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="<?=base_url('assets/admin/')?>css/main.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/jpg" href="<?=base_url('assets/admin/') ?>images/fav_logo.png"/>
     <script type="text/javascript" src="<?=base_url('assets/admin/')?>scripts/main.js"></script>
     <script type="text/javascript" src="<?=base_url('assets/admin/')?>scripts/jquery.min.js"></script>
 </head>
@@ -21,9 +22,9 @@
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <div class="my-logo"><img src="<?=base_url('assets/admin/')?>images/my_logo_new.png"></div>
+                <div class="my-logo"><img src="<?=base_url('assets/admin/')?>images/main_logo.png"></div>
                 <div class="header__pane ml-auto">
-                    <div>
+                    <div style="margin-left:10px;">
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
                             data-class="closed-sidebar">
                             <span class="hamburger-box">
@@ -61,28 +62,22 @@
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="<?=base_url('assets/admin/')?>images/avatars/bob_sadino.jpeg"
+                                            <img width="42" class="rounded-circle" src="<?=base_url('assets/images/avatar/').$user['avatar']?>"
                                                 alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
-                                            class="dropdown-menu dropdown-menu-right">
-                                            <button type="button" tabindex="0" class="dropdown-item">User
-                                                Account</button>
-                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
-                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
-                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
-                                            <div tabindex="-1" class="dropdown-divider"></div>
-                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                            class="dropdown-menu dropdown-menu-right" style="min-width: 9em;">
+                                            <a href="<?=site_url('user/logout')?>" tabindex="0" class="dropdown-item">Logout</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Super Admin
+                                        <?=$user['name']?>
                                     </div>
                                     <div class="widget-subheading">
-                                        Owner
+                                        <?=$user['role']?>                                        
                                     </div>
                                 </div>
                             </div>
@@ -177,34 +172,10 @@
                 <div class="app-wrapper-footer">
                     <div class="app-footer">
                         <div class="app-footer__inner">
-                            <div class="app-footer-left">
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            Footer Link 1
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            Footer Link 2
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                             <div class="app-footer-right">
                                 <ul class="nav">
                                     <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            Footer Link 3
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            <div class="badge badge-success mr-1 ml-0">
-                                                <small>NEW</small>
-                                            </div>
-                                            Footer Link 4
-                                        </a>
+                                        Made with <i class="fa fa-heart" style="color: #e74c3c;"></i> <span><a target="_blank" href="nnf-pro.com">NNF Production</a></span>
                                     </li>
                                 </ul>
                             </div>
@@ -223,6 +194,20 @@
                 $('#mn_'+highlight_menu).addClass('mm-active');
             }
         });
+
+        function showMessage(el, type, msg){
+            $(el).addClass('alert-'+type);
+            $(el).find('.msg').text(msg);
+            $(el).fadeIn();
+
+            setTimeout(() => {
+                hideMessage(el)        
+            }, 3000);
+        }
+
+        function hideMessage(el){
+            $(el).fadeOut();
+        }
     </script>
 </body>
 

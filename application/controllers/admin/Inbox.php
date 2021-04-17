@@ -10,11 +10,19 @@ class Inbox extends CI_Controller {
 
 	public function index()
 	{
-        $d['highlight_menu'] = "inbox";
-        $d['content_view'] = 'system/inbox';
-        $d['modal_view'] = 'system/modal/modal_inbox';
-        $d['data'] = $this->inbox_model->list();
- 		$this->load->view('system/dashboard', $d);
+
+        if($this->session->userdata('sess_data')){
+            $d['user'] = $this->session->userdata('sess_data');
+            $d['highlight_menu'] = "inbox";
+            $d['content_view'] = 'system/inbox';
+            $d['modal_view'] = 'system/modal/modal_inbox';
+            $d['data'] = $this->inbox_model->list();
+            
+            $this->load->view('system/dashboard', $d);
+        }else{
+            $this->session->set_flashdata('msg', 'Session expired');
+            redirect('user/login');
+        }
     }
 
     public function send()

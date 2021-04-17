@@ -5,7 +5,7 @@
  
     public function check_user($data)
     {   
-        $check = $this->db->get_where('user', "username = '{$data['username']}' AND password= '{$data['password']}'");
+        $check = $this->db->get_where('user', "username = '{$data['username']}' AND password= '{$data['password']}' AND active = 1");
 
         if($check->num_rows() > 0){
             return $check->row_array()['id'];
@@ -16,7 +16,7 @@
 
     public function list()
     {
-        return $this->db->select()->from('user')->order_by('id', 'desc')->get()->result_array();
+        return $this->db->select()->from('user')->order_by('id', 'asc')->get()->result_array();
     }
 
     public function detail($id)
