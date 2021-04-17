@@ -53,6 +53,17 @@
     cursor: pointer;
 }
 </style>
+<div id="my-toast" class="alert alert-dismissible fade show" role="alert" style="
+    width: max-content;
+    position: fixed;
+    display: none;
+    z-index: 99;
+    right: 1rem;
+    bottom: 3rem;
+">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <span class="msg"></span>
+</div>
 
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -80,7 +91,7 @@
                     <h5 class="card-title"><?=!empty($value['name'])? $value['name'] : '' ;  ?></h5>
                     <h6 class="mb-0 card-subtitle">Rp<?=!empty($value['price'])? number_format($value['price'],2,',','.') : '' ;  ?></h6>
                 </div>
-                <img width="100%" src="<?=!empty($value['photo'])? base_url('assets/images/menu/').$value['photo'] : '' ;  ?>" alt="Card image cap" style="height: 150px; object-fit: cover; width: 100%;">
+                <img width="100%" src="<?=!empty($value['photo'])? base_url('assets/images/menu/').$value['photo'] : '' ;  ?>" alt="Menu Image" style="height: 150px; object-fit: cover; width: 100%;">
                 <div class="card-body" style="    
                     text-align: end;
                     padding-right: 0;
@@ -113,6 +124,12 @@
 <script>
     let data = <?=json_encode($data) ?>;
     let base = '<?=base_url() ?>';
+    let flash_msg = <?=json_encode($this->session->flashdata('msg')) ?>;
+
+    $(document).ready(function () {
+        if(flash_msg != null)
+            (flash_msg.success === 1)? showMessage('#my-toast', 'success', flash_msg.message) : showMessage('#my-toast', 'danger', flash_msg.message) 
+    });
 
     function showModal(modal, show){
         if(show){

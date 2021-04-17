@@ -53,14 +53,16 @@ class Menu extends CI_Controller {
                     'message' => $this->upload->display_errors(),
                 ];
 
-                echo json_encode($data);
+                $this->session->set_flashdata('msg', $data);
+                redirect('admin/menu/');   
+                return;
             }
         }
         $detail = $this->menu_model->detail($nd['id']);
         
         if(!empty($filename)){
             $nd['photo'] = $filename;
-        }
+        }    
 
         if($detail){
             if($this->menu_model->edit($nd)){
@@ -88,11 +90,8 @@ class Menu extends CI_Controller {
             }
         }
 
-        if($data['success'] === 1){
-            redirect('admin/menu/');
-        }else{
-            echo json_encode($data);
-        }
+        $this->session->set_flashdata('msg', $data);
+        redirect('admin/menu/');
     }
 
     public function create()

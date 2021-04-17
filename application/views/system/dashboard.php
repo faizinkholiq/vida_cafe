@@ -197,7 +197,7 @@
 
         function showMessage(el, type, msg){
             $(el).addClass('alert-'+type);
-            $(el).find('.msg').text(msg);
+            $(el).find('.msg').text(strip_tags(msg));
             $(el).fadeIn();
 
             setTimeout(() => {
@@ -207,6 +207,15 @@
 
         function hideMessage(el){
             $(el).fadeOut();
+        }
+
+        function strip_tags (input, allowed = null) {
+            allowed = (((allowed || "") + "").toLowerCase().match(/<[a-z][a-z0-9]*>/g) || []).join('');
+            var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
+                commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+            return input.replace(commentsAndPhpTags, '').replace(tags, function ($0, $1) {
+                return allowed.indexOf('<' + $1.toLowerCase() + '>') > -1 ? $0 : '';
+            });
         }
     </script>
 </body>
