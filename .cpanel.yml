@@ -7,6 +7,8 @@ deployment:
 
     - mkdir avatar gallery menu
 
+    - cd ../../
+
     - /usr/bin cp $DEPLOYPATH/assets/images/* assets/images/
 
     - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
