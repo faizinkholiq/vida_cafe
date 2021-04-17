@@ -1,4 +1,4 @@
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(<?=base_url('assets/public/')?>images/hero_3.png);" data-stellar-background-ratio="0.5">
+	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(<?=base_url('assets/public/')?>images/bc.png);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -14,7 +14,7 @@
 		</div>
 	</header>
 
-	<div id="fh5co-about" class="fh5co-section">
+	<div id="fh5co-about" class="fh5co-section" style="padding-bottom: 0">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-pull-4 img-wrap animate-box" data-animate-effect="fadeInLeft">
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 
-	<div id="fh5co-timeline">
+	<div id="fh5co-timeline" style="padding:5em">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-md-offset-0">
@@ -41,83 +41,24 @@
 						<li class="animate-box timeline-unverted">
 							<div class="timeline-badge"><i class="icon-genius"></i></div>
 							<div class="timeline-panel">
-								<div class="timeline-heading">
+								<div class="timeline-heading" style="margin-top: 4.7rem;">
 									<h3 class="timeline-title">The Founders Meet</h3>
-								
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 								</div>
 							</div>
-						</li>
+						</li><br/>
 						<li class="timeline-inverted animate-box">
 							<div class="timeline-badge"><i class="icon-genius"></i></div>
 							<div class="timeline-panel">
-								<div class="timeline-heading">
+								<div class="timeline-heading" style="margin-top: 4.7rem;">
 									<h3 class="timeline-title">Create A Restaurant</h3>
 								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
 							</div>
-						</li>
+						</li><br/>
 						<li class="animate-box timeline-unverted">
 							<div class="timeline-badge"><i class="icon-genius"></i></div>
 							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Added 200+ Employees</h3>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-						</li>
-
-						<br>
-						<li class="timeline-heading text-center animate-box">
-							<div><h3>More Restaurants Outlet</h3></div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-genius"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Stablished Restaurant in Europe</h3>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</li>
-						<li class="animate-box timeline-unverted">
-							<div class="timeline-badge"><i class="icon-genius"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Franchise Restaurants Brooklyn</h3>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-genius"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Added 100K More Employees</h3>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</li>
-						<li class="animate-box timeline-unverted">
-							<div class="timeline-badge"><i class="icon-genius"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Stablished Marketing</h3>
-								</div>
-								<div class="timeline-body">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								<div class="timeline-heading" style="margin-top: 4.7rem;">
+									<h3 class="timeline-title">Added Employees</h3>
 								</div>
 							</div>
 						</li>

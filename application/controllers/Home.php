@@ -12,10 +12,16 @@ class Home extends CI_Controller {
 	public function index()
 	{
         $d['profile'] = $this->home_model->detail(1);
-        $d['menu'] = $this->menu_model->list([
+        $d['unique_menu'] = $this->menu_model->list([
 			"special" => true,
 			"limit" => 4,
+		]);
+
+		$d['favorite_menu'] = $this->menu_model->list([
+			"favorite" => true,
+			"limit" => 4,
 		]);		
+				
 		$d['highlight_menu'] = 'home';
 		$d['content_view'] = 'index';
 		$this->load->view('dashboard', $d);

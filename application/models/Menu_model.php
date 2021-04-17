@@ -10,11 +10,15 @@
         ;
         
         if(!empty($p)){
-            if($p['special']){
+            if(!empty($p['special'])){
                 $this->db->where('special', '1');
             }
 
-            if($p['limit']){
+            if(!empty($p['favorite'])){
+                $this->db->where('favorite', '1');
+            }
+
+            if(!empty($p['limit'])){
                 $this->db->limit($p['limit']);
             }
         }

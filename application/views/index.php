@@ -1,4 +1,4 @@
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(<?=base_url('assets/public/')?>images/hero_3.png);" data-stellar-background-ratio="0.5">
+	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(<?=base_url('assets/public/')?>images/bc.png);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 				</div>
-				<?php foreach($menu as $key => $value): ?>
+				<?php foreach($favorite_menu as $key => $value): ?>
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box">
 					<div class="fh5co-item">
 						<img src="<?=base_url('assets/images/menu/').$value['photo']?>" class="img-responsive" loading="lazy" alt="Kopi" style="
@@ -98,7 +98,7 @@
 					<aside id="fh5co-slider-wrwap">
 					<div class="flexslider">
 						<ul class="slides">
-						<?php foreach($menu as $key => $value): ?>
+						<?php foreach($unique_menu as $key => $value): ?>
 							<li style="background-image: url(<?=base_url('assets/images/menu/').$value['photo'] ?>">
 								<div class="overlay-gradient"></div>
 								<div class="container-fluid">
@@ -124,7 +124,7 @@
 		</div>
 	</div>
 	
-	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(<?=base_url('assets/public/')?>images/hero_3.png);" data-stellar-background-ratio="0.5">
+	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(<?=base_url('assets/public/')?>images/bc.png);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
