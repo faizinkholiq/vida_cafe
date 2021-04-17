@@ -4,5 +4,5 @@ deployment:
     - export DEPLOYPATH=/home/nnfproco/vidacafe.nnf-pro.com
     - cd assets/images/
     - mkdir avatar gallery menu
-    - /bin cp $DEPLOYPATH/assets/images/* assets/images/
-    - /bin cp * $DEPLOYPATH
+    - /usr/bin cp $DEPLOYPATH/assets/images/* assets/images/
+    - /usr/bin cp * $DEPLOYPATH
