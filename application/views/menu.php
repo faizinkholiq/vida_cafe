@@ -47,15 +47,3 @@
 		</div>
 	</div>
 </div>
-
-<script src="<?=base_url('assets/public/')?>js/zoomerang.js"></script>
-<script>
-	Zoomerang
-		.config({
-			maxHeight: 400,
-			maxWidth: 400,
-			bgColor: '#000',
-			bgOpacity: .85,
-		})
-		.listen('.zoom')
-</script>
