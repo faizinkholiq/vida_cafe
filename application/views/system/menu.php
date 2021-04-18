@@ -66,10 +66,10 @@
     display: none;
     z-index: 99;
     right: 1rem;
-    bottom: 3rem;
+    bottom: 4rem;
 ">
     <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
-    <span class="msg"></span>
+    <span class="msg" style="font-weight:bold;"></span>
 </div>
 
 <div class="app-page-title">

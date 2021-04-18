@@ -198,11 +198,8 @@ class Menu extends CI_Controller {
             ];
         }
 
-        if($data['success'] === 1){
-            redirect('admin/menu/');
-        }else{
-            echo json_encode($data);
-        }
+        $this->session->set_flashdata('msg', $data);
+        redirect('admin/menu/');
     }
 
     public function get_input()

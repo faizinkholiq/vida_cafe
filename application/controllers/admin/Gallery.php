@@ -66,11 +66,8 @@ class Gallery extends CI_Controller {
             ];
         }
 
-        if($data['success'] === 1){
-            redirect('admin/gallery/');
-        }else{
-            echo json_encode($data);
-        }
+        $this->session->set_flashdata('msg', $data);
+        redirect('admin/gallery/');
     }
 
     public function delete()
@@ -97,10 +94,7 @@ class Gallery extends CI_Controller {
             ];
         }
 
-        if($data['success'] === 1){
-            redirect('admin/gallery/');
-        }else{
-            echo json_encode($data);
-        }
+        $this->session->set_flashdata('msg', $data);
+        redirect('admin/gallery/');
     }
 }

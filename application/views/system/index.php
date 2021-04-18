@@ -1,3 +1,15 @@
+<div id="my-toast" class="alert alert-dismissible fade show" role="alert" style="
+    width: max-content;
+    position: fixed;
+    display: none;
+    z-index: 99;
+    right: 1rem;
+    bottom: 1rem;
+">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <span class="msg" style="font-weight:bold;"></span>
+</div>
+
 <div class="app-page-title">
     <div class="page-title-wrapper">
         <div class="page-title-heading">
@@ -112,3 +124,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    let flash_msg = <?=json_encode($this->session->flashdata('msg')) ?>;
+
+    $(document).ready(function () {
+        if(flash_msg != null)
+            (flash_msg.success === 1)? showMessage('#my-toast', 'success', flash_msg.message) : showMessage('#my-toast', 'danger', flash_msg.message) 
+    });
+
+</script>

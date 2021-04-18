@@ -48,7 +48,9 @@ class User extends CI_Controller {
                     'message' => $this->upload->display_errors(),
                 ];
 
-                echo json_encode($data);
+                $this->session->set_flashdata('msg', $data);
+                redirect('admin/user/');   
+                return;
             }
         }
         $detail = $this->user_model->detail($nd['id']);
@@ -83,11 +85,8 @@ class User extends CI_Controller {
             }
         }
 
-        if($data['success'] === 1){
-            redirect('admin/user/');
-        }else{
-            echo json_encode($data);
-        }
+        $this->session->set_flashdata('msg', $data);
+        redirect('admin/user/');
     }
 
     public function delete()
@@ -114,11 +113,8 @@ class User extends CI_Controller {
             ];
         }
 
-        if($data['success'] === 1){
-            redirect('admin/user/');
-        }else{
-            echo json_encode($data);
-        }
+        $this->session->set_flashdata('msg', $data);
+        redirect('admin/user/');
     }
 
     public function get_input()

@@ -46,6 +46,10 @@ class Home extends CI_Controller {
                             'success' => 0,
                             'message' => $this->upload->display_errors(),
                         ];
+
+                        $this->session->set_flashdata('msg', $data);
+                        redirect('admin/home/');
+                        return;
                     }else{
                         if(!empty($filename)){
                             $arr_filename = explode('.', $origin_file['name']);
@@ -85,11 +89,8 @@ class Home extends CI_Controller {
             }
         }
 
-        if($data['success'] === 1){
-            redirect('admin/home/');
-        }else{
-            echo json_encode($data);
-        }
+        $this->session->set_flashdata('msg', $data);
+        redirect('admin/home/');
     }
 
     public function get_input()

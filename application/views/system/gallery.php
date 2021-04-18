@@ -7,16 +7,35 @@
     overflow: auto;
     max-height: 26rem;
 }
+/* width */
 .my-scroller::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 8px;
 }
-/* Optional: show position indicator in red */
+
+/* Track */
+.my-scroller::-webkit-scrollbar-track {
+  border-radius: 30px;
+}
+
+/* Handle */
 .my-scroller::-webkit-scrollbar-thumb {
-    background: #FF0000;
+  background: #3f6ad8;;
+  border-radius: 30px;
 }
 
 </style>
+
+<div id="my-toast" class="alert alert-dismissible fade show" role="alert" style="
+    width: max-content;
+    position: fixed;
+    display: none;
+    z-index: 99;
+    right: 1rem;
+    bottom: 4rem;
+">
+    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <span class="msg" style="font-weight:bold;"></span>
+</div>
 
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -65,6 +84,12 @@
 <script>
     let data = <?=json_encode($data) ?>;
     let base = '<?=base_url() ?>';
+    let flash_msg = <?=json_encode($this->session->flashdata('msg')) ?>;
+
+    $(document).ready(function () {
+        if(flash_msg != null)
+            (flash_msg.success === 1)? showMessage('#my-toast', 'success', flash_msg.message) : showMessage('#my-toast', 'danger', flash_msg.message) 
+    });
 
     function showModal(modal, show){
         if(show){

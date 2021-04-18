@@ -57,4 +57,32 @@ class Inbox extends CI_Controller {
 
         return $nd;
     }
+
+    public function delete()
+    {
+        $id = $this->input->get('id');
+        $detail = $this->inbox_model->detail($id);
+
+        if(!empty($id) && $detail){
+            if($this->inbox_model->delete($id)){
+                $data = [
+                    'success' => 1,
+                    'message' => 'Delete data success ',
+                ];
+            }else{
+                $data = [
+                    'success' => 0,
+                    'message' => 'Delete data failed ',
+                ];
+            }
+        }else{
+            $data = [
+                'success' => 0,
+                'message' => 'id not found ',
+            ];
+        }
+
+        $this->session->set_flashdata('msg', $data);
+        redirect('admin/inbox/');
+    }
 }
