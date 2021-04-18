@@ -33,6 +33,7 @@
 	</div>
 </div>
 
+<script src="<?=base_url('assets/public/')?>js/zoomerang.js"></script>
 <script>
 	Zoomerang
 	.config({
