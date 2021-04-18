@@ -7,13 +7,20 @@
     overflow: auto;
     max-height: 60vh;
 }
+/* width */
 .my-scroller::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 8px;
 }
-/* Optional: show position indicator in red */
+
+/* Track */
+.my-scroller::-webkit-scrollbar-track {
+  border-radius: 30px;
+}
+
+/* Handle */
 .my-scroller::-webkit-scrollbar-thumb {
-    background: #FF0000;
+  background: #3f6ad8;;
+  border-radius: 30px;
 }
 
 .right-action{
