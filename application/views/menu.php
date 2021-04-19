@@ -30,7 +30,10 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		padding: 2em;
-		background: white;
+		background: #232323;
+		color:white;
+		font-weight:bold;
+		font-size: 15px;
 	}
 
 	.modal-window header {
@@ -122,10 +125,15 @@
 
 <script>
 	let data = <?=json_encode($menu) ?> ;
+	let base = '<?=base_url() ?>';
 
 	function DetailAction(id) {
 		let row = data.filter(a => a.id == id)
 		if (row.length > 0) {
+			$('#dtImg').attr('src', base + 'assets/images/menu/'+ row[0].photo)
+			$('#dtName').text(row[0].name);
+			$('#dtPrice').text(row[0].price);
+			$('#dtDescription').text(row[0].description);
 			OpenModal('menu_modal');
 		}
 	}
