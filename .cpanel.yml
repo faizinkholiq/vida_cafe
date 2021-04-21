@@ -3,4 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/nnfproco/vidacafe.nnf-pro.com
 
-    - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
+    - /usr/bin/cp -r * $DEPLOYPATH
