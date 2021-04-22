@@ -40,7 +40,9 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
     	<!-- jQuery -->
+	<script src="<?=base_url('assets/public/')?>js/jquery.min.js"></script>	
 	<!-- jQuery Easing -->
+	<script src="<?=base_url('assets/public/')?>js/jquery.easing.1.3.js"></script>
 	</head>
 	<body>
 		
@@ -123,8 +125,6 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
 	</div>
-	<script src="<?=base_url('assets/public/')?>js/jquery.min.js"></script>	
-	<script src="<?=base_url('assets/public/')?>js/jquery.easing.1.3.js"></script>
 	<!-- Modernizr JS -->
 	<script src="<?=base_url('assets/public/')?>js/modernizr-2.6.2.min.js"></script>
 	<!-- Bootstrap -->

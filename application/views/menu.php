@@ -24,7 +24,8 @@
 	}
 
 	.modal-window>div {
-		width: 400px;
+		width: 80rem;
+		min-height: 60rem;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -92,7 +93,7 @@
 			<?php foreach($menu as $key => $value): ?>
 			<div onclick="DetailAction(<?=$value['id']?>)"
 				class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box"
-				style="margin-top:50px; max-height: 35rem;">
+				style="margin-top:50px; max-height: 35rem; cursor: pointer;">
 				<div class="fh5co-item">
 					<img src="<?=base_url('assets/images/menu/').$value['photo'] ?>" class="img-responsive"
 						loading="lazy" alt="<?=$value['name'] ?>" style="
@@ -103,7 +104,7 @@
 							">
 					<h3><?=$value['name'] ?></h3>
 					<span class="fh5co-price"><sup>Rp</sup><?=number_format($value['price'],2,',','.') ?></span>
-					<p style="min-height: 50px;"><?=$value['description'] ?></p>
+					<!-- <p style="min-height: 50px;"><?php //echo $value['description'] ?></p> -->
 				</div>
 			</div>
 			<?php endforeach; ?>
@@ -111,14 +112,18 @@
 	</div>
 </div>
 
-<div id="menu_modal" class="modal-window">
+<div id="menu_modal" class="modal-window" onclick="CloseModal('menu_modal')">
 	<div>
 		<a href="#!" onclick="CloseModal('menu_modal')" title="Close" class="modal-close">Close</a>
 		<div>
-			<img id="dtImg" src="" alt="">
-			<div id="dtName"></div>
-			<div id="dtPrice"></div>
-			<div id="dtDescription"></div>
+			<img style="
+				width: 100%;
+				height: 35rem;
+				object-fit: cover;
+			" id="dtImg" src="" alt="Menu Image">
+			<div id="dtName" style="font-size: 35px;"></div>
+			<div id="dtPrice" style="font-size: 25px;"></div>
+			<div id="dtDescription" style="font-size: 20px;"></div>
 		</div>
 	</div>
 </div>
@@ -126,6 +131,12 @@
 <script>
 	let data = <?=json_encode($menu) ?> ;
 	let base = '<?=base_url() ?>';
+
+	$(document).ready(function(){
+		$('#menu_modal').find('div').click(function(e){
+			e.stopPropagation();
+		})
+	});
 
 	function DetailAction(id) {
 		let row = data.filter(a => a.id == id)
