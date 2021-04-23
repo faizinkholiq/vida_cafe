@@ -93,8 +93,8 @@
 			<?php foreach($menu as $key => $value): ?>
 			<div onclick="DetailAction(<?=$value['id']?>)"
 				class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box"
-				style="margin-top:50px; max-height: 35rem; cursor: pointer;">
-				<div class="fh5co-item">
+				style="margin-top:50px; cursor: pointer;">
+				<div class="fh5co-item" style="height: 35rem;">
 					<img src="<?=base_url('assets/images/menu/').$value['photo'] ?>" class="img-responsive"
 						loading="lazy" alt="<?=$value['name'] ?>" style="
 								width: 255px;
