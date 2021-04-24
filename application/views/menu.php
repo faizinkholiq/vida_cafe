@@ -117,6 +117,9 @@
 	.sub-category:after {
 		margin-left: 20px
 	}
+	#fh5co-footer{
+		padding: 0!important;
+	}
 </style>
 <header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner"
 	style="background-image: url(<?=base_url('assets/public/')?>images/bc.png);" data-stellar-background-ratio="0.5">
