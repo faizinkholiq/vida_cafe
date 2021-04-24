@@ -137,10 +137,10 @@
 <div id="fh5co-featured-menu" class="fh5co-section">
 	<div class="container">
 		<div class="row" style="margin-top:50px; margin-bottom: 50px;">
-			<div class="col-md-12 fh5co-heading animate-box">
+			<div class="col-md-12 fh5co-heading animate-box" style="margin-bottom: 5rem!important;">
 				<h2>Our Delicous Menu</h2>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<p>Dibawah ini adalah menu-menu kami yang selalu jadi favorit pelanggan.</p>
 					</div>
 				</div>
@@ -172,7 +172,7 @@
 			</div>
 			<?php endif; ?>
 			<?php endforeach; ?>
-			<div class="col-md-12" style="height: 5rem;"></div>
+			<div class="col-md-12" style="height: 2rem;"></div>
 			<?php endforeach; ?>
 		</div>
 	</div>
