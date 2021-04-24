@@ -1,4 +1,8 @@
 <style>
+	.fh5co-nav {
+		z-index: 998;
+	}
+
 	.fh5co-heading {
 		margin-bottom: 10px !important;
 	}
@@ -25,25 +29,46 @@
 
 	.modal-window>div {
 		width: 80rem;
-		min-height: 60rem;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		padding: 2em;
 		background: #232323;
-		color:white;
-		font-weight:bold;
+		color: white;
 		font-size: 15px;
 	}
 
-	.modal-window header {
-		font-weight: bold;
+	.modal-window .my-modal-container{
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+		margin: 0;
+		height: 10%;
+		width: 100%;
+		min-height: 100%;
 	}
 
-	.modal-window h1 {
-		font-size: 150%;
-		margin: 0 0 15px;
+	.modal-window .my-modal-body{
+		padding: 1rem 3rem 1rem;
+		flex: 1;
+		width: 100%;
+		display: flex;
+    	flex-direction: column;
+	}
+
+	.my-modal-body .description{
+		font-size: 18px;
+		line-height: 25px;
+		width: 95%;
+		text-align: justify;
+	}
+
+	.modal-window .my-modal-footer{
+		padding: 1rem 2rem 1rem;
+		height: 7rem;
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
 	}
 
 	.modal-close {
@@ -54,12 +79,21 @@
 		right: 0;
 		text-align: center;
 		top: 0;
-		width: 70px;
 		text-decoration: none;
 	}
 
-	.modal-close:hover {
+	.modal-close svg:hover {
 		color: black;
+		opacity: 1;
+	}
+
+	.modal-close svg{
+		width: 2rem;
+		margin-top: 1.5rem;
+		margin-right: 1.6rem;
+		filter: invert(1);
+		opacity: 0.7;
+		transition: all 0.5s ease;
 	}
 
 	.sub-category {
@@ -73,7 +107,8 @@
 	.sub-category:before, .sub-category:after{
 		content: "";
 		flex: 1 1;
-		border-bottom: 1px solid white;
+		border: dotted #656565;
+		border-width: 0.2em 0 0;
 		margin: auto;
 	}
 	.sub-category:before {
@@ -114,7 +149,7 @@
 			<?php foreach($list_category as $k => $v): ?>
 			<div class="col-md-12">
 				<div class="sub-category">
-					<?=$v['name'] ?>
+					<?=$v['name'] ?><span style="color: #ea272d; margin-left: 5px; font-size: 3rem;">.</span>
 				</div>
 			</div>
 			<?php foreach($menu as $key => $value): ?>
@@ -145,16 +180,26 @@
 
 <div id="menu_modal" class="modal-window" onclick="CloseModal('menu_modal')">
 	<div>
-		<a href="#!" onclick="CloseModal('menu_modal')" title="Close" class="modal-close">Close</a>
-		<div>
+		<a href="#!" onclick="CloseModal('menu_modal')" title="Close" class="modal-close">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+		</a>
+		<div class="my-modal-container">
 			<img style="
 				width: 100%;
 				height: 35rem;
 				object-fit: cover;
 			" id="dtImg" src="" alt="Menu Image">
-			<div id="dtName" style="font-size: 35px;"></div>
-			<div id="dtPrice" style="font-size: 25px;"></div>
-			<div id="dtDescription" style="font-size: 20px;"></div>
+			<div class="my-modal-body">
+				<div style="font-size: 35px;">
+					<span id="dtName" style="font-weight:bold;"></span>
+					<span style="font-size: 25px; margin: 0 10px;">|</span>
+					<span id="dtPrice" style="font-size: 30px; color: #fee856;"></span>
+				</div>
+				<div class="description" id="dtDescription"></div>
+			</div>
+			<div class="my-modal-footer">
+				<button type="button" class="btn btn-primary btn-outline" onclick="CloseModal('menu_modal')" style="height: 4rem;">Close</button>
+			</div>
 		</div>
 	</div>
 </div>
