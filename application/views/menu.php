@@ -61,6 +61,27 @@
 	.modal-close:hover {
 		color: black;
 	}
+
+	.sub-category {
+		color: white;
+		font-weight: bold;
+		font-size: 30px;
+		font-family: 'Satisfy', cursive;
+		display: flex;
+		flex-direction: row;
+	}
+	.sub-category:before, .sub-category:after{
+		content: "";
+		flex: 1 1;
+		border-bottom: 1px solid white;
+		margin: auto;
+	}
+	.sub-category:before {
+		margin-right: 20px
+	}
+	.sub-category:after {
+		margin-left: 20px
+	}
 </style>
 <header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner"
 	style="background-image: url(<?=base_url('assets/public/')?>images/bc.png);" data-stellar-background-ratio="0.5">
@@ -90,7 +111,14 @@
 				</div>
 			</div>
 
+			<?php foreach($list_category as $k => $v): ?>
+			<div class="col-md-12">
+				<div class="sub-category">
+					<?=$v['name'] ?>
+				</div>
+			</div>
 			<?php foreach($menu as $key => $value): ?>
+			<?php if($value['category'] == $v['id']): ?>
 			<div onclick="DetailAction(<?=$value['id']?>)"
 				class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box"
 				style="margin-top:50px; cursor: pointer;">
@@ -107,6 +135,9 @@
 					<!-- <p style="min-height: 50px;"><?php //echo $value['description'] ?></p> -->
 				</div>
 			</div>
+			<?php endif; ?>
+			<?php endforeach; ?>
+			<div class="col-md-12" style="height: 5rem;"></div>
 			<?php endforeach; ?>
 		</div>
 	</div>

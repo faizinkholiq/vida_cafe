@@ -15,6 +15,7 @@ class Menu extends CI_Controller {
             $d['highlight_menu'] = "menu";
             $d['content_view'] = 'system/menu';
             $d['modal_view'] = 'system/modal/modal_menu';
+            $d['list_category'] = $this->menu_model->list_category();
             $d['data'] = $this->menu_model->list();
 
             $this->load->view('system/dashboard', $d);
@@ -206,6 +207,7 @@ class Menu extends CI_Controller {
     {
         $nd["id"] = $this->input->post('id');
         $nd["name"] = $this->input->post('name');     
+        $nd["category"] = $this->input->post('category');     
         $nd["price"] = $this->input->post('price');     
         $nd["description"] = $this->input->post('description');     
 

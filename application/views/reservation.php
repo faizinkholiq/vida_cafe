@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			
-			<div class="col-md-6 col-md-push-6 col-sm-6 col-sm-push-6">
+			<div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2">
 				<form action="<?=site_url('admin/reservation/send') ?>" id="form-wrap" method="POST">
 					<div class="row form-group">
 						<div class="col-md-12">
@@ -75,5 +75,8 @@
 		</div>
 	</div>
 </div>
+
+<script src="<?=base_url('assets/public/')?>js/moment.min.js"></script>
+<script src="<?=base_url('assets/public/')?>js/bootstrap-datetimepicker.js"></script>
 
 

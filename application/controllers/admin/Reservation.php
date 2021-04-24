@@ -26,6 +26,7 @@ class Reservation extends CI_Controller {
     public function send()
     {
         $nd = $this->get_input();
+
         if($this->reservation_model->create($nd)){
             $data = [
                 'success' => 1,
@@ -51,7 +52,7 @@ class Reservation extends CI_Controller {
         $nd["name"] = $this->input->post('name');     
         $nd["contact"] = $this->input->post('contact');     
         $nd["people"] = $this->input->post('people');  
-        $nd["time"] = $this->input->post('time');  
+        $nd["time"] = !empty($this->input->post('time'))? date_create($this->input->post('time'))->format('Y-m-d H:i:s') : null;  
 
         return $nd;
     }

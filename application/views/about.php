@@ -18,7 +18,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-pull-4 img-wrap animate-box" data-animate-effect="fadeInLeft">
-					<img src="<?=base_url('assets/images/profile/').$profile['cover'] ?>" alt="Free Restaurant Bootstrap Website Template by FreeHTML5.co" style="width: 900px;height: 425px; object-fit: cover;">
+					<img src="<?=base_url('assets/images/profile/').$profile['cover'] ?>" alt="Vida Cafe & Bistro" style="
+						width: 615px;
+						height: 380px;
+						object-fit: cover;
+						margin-left: 39rem;
+					">
 				</div>
 				<div class="col-md-5 col-md-push-1 animate-box">
 					<div class="section-heading">

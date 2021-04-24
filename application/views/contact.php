@@ -27,8 +27,8 @@
 	<div class="container">
 		<div class="row animate-box">
 			<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-				<h2>Don't be shy, let's chat.</h2>
-				<p>Silahkan hubungi kami lewat form dibawah ini.</p>
+				<h2>Don&#39;t be shy, let&#39;s say.</h2>
+				<p>Karena kesan dan saran anda sangat bermakna bagi kami, untuk lebih baik dalam melayani</p>
 			</div>
 		</div>
 		

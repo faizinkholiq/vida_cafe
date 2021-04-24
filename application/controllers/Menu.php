@@ -13,7 +13,8 @@ class Menu extends CI_Controller {
 	public function index()
 	{
         $d['profile'] = $this->home_model->detail(1);
-        $d['menu'] = $this->menu_model->list();		
+		$d['menu'] = $this->menu_model->list();	
+		$d['list_category'] = $this->menu_model->list_category();			
 		$d['highlight_menu'] = 'menu';
 		$d['content_view'] = 'menu';
 		$this->load->view('dashboard', $d);

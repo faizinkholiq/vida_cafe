@@ -5,7 +5,7 @@
     padding: 0;
     width: 100%;
     overflow: auto;
-    max-height: 60vh;
+    max-height: 53vh;
 }
 /* width */
 .my-scroller::-webkit-scrollbar {
@@ -59,6 +59,27 @@
     font-size: 25px;
     cursor: pointer;
 }
+
+.my-span-filter{
+    padding: 6px 12px;
+    font-weight: bold;
+    box-shadow: 1px 1px 7px 1px #b5b5b5;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.my-span{
+    transition: all 0.5s ease;
+    padding: 6px 12px;
+    font-weight: bold;
+    /* box-shadow: 1px 1px 7px 1px #b5b5b5; */
+    border-radius: 30px;
+    text-align: center;
+    font-size: 13px;
+}
 </style>
 <div id="my-toast" class="alert alert-dismissible fade show" role="alert" style="
     width: max-content;
@@ -86,33 +107,55 @@
     </div>
 </div>
 <div class="row col-md-12" style="margin:0; padding:0;">
+    <div class="col-md-12" style="height: 3rem;">
+            <span class="my-span-filter" onclick="doFilter('category', 'all')" style="
+                color: #5d5c5c;
+                background: white;
+            ">All</span>
+        <?php foreach($list_category as $key => $value): ?>
+            <span class="my-span-filter" onclick="doFilter('category', <?=$value['id'] ?>)" style="
+                color: <?=$value['fgcolor'] ?>;
+                background: <?=$value['bgcolor'] ?>;
+            "><?=$value['name'] ?></span>
+        <?php endforeach; ?>
+    </div>
     <div class="row col-md-11 my-scroller">
-        <?php foreach($data as $key => $value): ?>
-        <div class="mb-3 col-md-4 row" style="margin:0">
-            <div class="main-card col-md-12 card">
-                <div class="card-body" style="padding-left:0; padding-right:5px;">
-                    <div class="right-action">
-                        <a href="<?=site_url('admin/menu/action/special/').$value['id']?>"><i class="fa fa-star fa-w-20 btn-icon-wrapper <?=!empty($value['special'])? 'my-star' : 'my-unstar' ;  ?>"> </i></a>
-                        <a href="<?=site_url('admin/menu/action/favorite/').$value['id']?>"><i class="fa fa-heart fa-w-20 btn-icon-wrapper <?=!empty($value['favorite'])? 'my-love' : 'my-unlove' ;  ?>"> </i></a>
+        <div class="row col-md-12" id="my-data">
+            <?php foreach($data as $key => $value): ?>
+            <div class="mb-3 col-md-4 row" style="margin:0">
+                <div class="main-card col-md-12 card">
+                    <div class="card-body" style="padding-left:0; padding-right:5px;">
+                        <div class="right-action">
+                            <a href="<?=site_url('admin/menu/action/special/').$value['id']?>" data-toggle="tooltip" data-original-title="Unique"><i class="fa fa-star fa-w-20 btn-icon-wrapper <?=!empty($value['special'])? 'my-star' : 'my-unstar' ;  ?>"> </i></a>
+                            <a href="<?=site_url('admin/menu/action/favorite/').$value['id']?>" data-toggle="tooltip" data-original-title="Favorite"><i class="fa fa-heart fa-w-20 btn-icon-wrapper <?=!empty($value['favorite'])? 'my-love' : 'my-unlove' ;  ?>"> </i></a>
+                        </div>
+                        <h5 class="card-title"><?=!empty($value['name'])? $value['name'] : '' ;  ?></h5>
+                        <h6 class="mb-0 card-subtitle">Rp<?=!empty($value['price'])? number_format($value['price'],2,',','.') : '' ;  ?></h6>
                     </div>
-                    <h5 class="card-title"><?=!empty($value['name'])? $value['name'] : '' ;  ?></h5>
-                    <h6 class="mb-0 card-subtitle">Rp<?=!empty($value['price'])? number_format($value['price'],2,',','.') : '' ;  ?></h6>
-                </div>
-                <img width="100%" src="<?=!empty($value['photo'])? base_url('assets/images/menu/').$value['photo'] : '' ;  ?>" alt="Menu Image" style="height: 150px; object-fit: cover; width: 100%;">
-                <div class="card-body" style="    
-                    text-align: end;
-                    padding-right: 0;
-                    width: 100%;">
-                    <button class="btn-icon btn-icon-only btn btn-outline-alternate" onclick="editAction(<?=!empty($value['id'])? $value['id'] : '' ;  ?>)" data-toggle="tooltip" data-original-title="Edit">
-                        <i class="fa fa-edit fa-w-20 btn-icon-wrapper"> </i>
-                    </button>
-                    <button class="btn-icon btn-icon-only btn btn-outline-danger" onclick="deleteAction(<?=!empty($value['id'])? $value['id'] : '' ;  ?>)" data-toggle="tooltip" data-original-title="Delete">
-                        <i class="fa fa-trash fa-w-20 btn-icon-wrapper"> </i>
-                    </button>
+                    <img width="100%" src="<?=!empty($value['photo'])? base_url('assets/images/menu/').$value['photo'] : '' ;  ?>" alt="Menu Image" style="height: 150px; object-fit: cover; width: 100%;">
+                    <div class="card-body" style="    
+                        padding-right: 0;
+                        width: 100%;
+                        padding-left: 0;
+                        display: flex;
+                        flex-direction: row;">
+                        <span class="my-span" style="
+                            color: <?=$value['fgcolor'] ?>;
+                            background: <?=$value['bgcolor'] ?>;
+                        "><?=$value['category_name'] ?></span>
+                        <div style="margin-left: auto;">
+                            <button class="btn-icon btn-icon-only btn btn-outline-alternate" onclick="editAction(<?=!empty($value['id'])? $value['id'] : '' ;  ?>)" data-toggle="tooltip" data-original-title="Edit">
+                                <i class="fa fa-edit fa-w-20 btn-icon-wrapper"> </i>
+                            </button>
+                            <button class="btn-icon btn-icon-only btn btn-outline-danger" onclick="deleteAction(<?=!empty($value['id'])? $value['id'] : '' ;  ?>)" data-toggle="tooltip" data-original-title="Delete">
+                                <i class="fa fa-trash fa-w-20 btn-icon-wrapper"> </i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
     </div>
     <div class="col-md-1" style="height: 100px; width: 100%; margin:0; padding: 0; text-align: center">
         <button type="button" class="btn btn-primary" onclick="addAction()" style="
@@ -131,6 +174,7 @@
 <script>
     let data = <?=json_encode($data) ?>;
     let base = '<?=base_url() ?>';
+    let site = '<?=site_url() ?>';
     let flash_msg = <?=json_encode($this->session->flashdata('msg')) ?>;
 
     $(document).ready(function () {
@@ -163,6 +207,7 @@
         if (row.length > 0) {
             $('#idMenu').val(row[0].id)
             $('#tbName').val(row[0].name)
+            $('#slcCategory').val(row[0].category)
             $('#tbPrice').val(row[0].price)
             $('#txtDescription').val(row[0].description)
             
@@ -179,5 +224,47 @@
     function deleteAction(id){
         $('#deleted_id').val(id);
         showModal('#deleteModal', true)
+    }
+
+    function doFilter(field, value){
+        let filters = value=="all"? data : data.filter(a => a[field] == value);
+        $('#my-data').html('');
+
+        filters.forEach(function(r){
+            $('#my-data').hide().append(`
+                <div class="mb-3 col-md-4 row" style="margin:0">
+                <div class="main-card col-md-12 card">
+                    <div class="card-body" style="padding-left:0; padding-right:5px;">
+                        <div class="right-action">
+                            <a href="${site+'admin/menu/action/special/'+r.id}" data-toggle="tooltip" data-original-title="Unique"><i class="fa fa-star fa-w-20 btn-icon-wrapper <?=!empty($value['special'])? 'my-star' : 'my-unstar' ;  ?>"> </i></a>
+                            <a href="${site+'admin/menu/action/favorite/'+r.id}" data-toggle="tooltip" data-original-title="Favorite"><i class="fa fa-heart fa-w-20 btn-icon-wrapper <?=!empty($value['favorite'])? 'my-love' : 'my-unlove' ;  ?>"> </i></a>
+                        </div>
+                        <h5 class="card-title">${r.name}</h5>
+                        <h6 class="mb-0 card-subtitle">Rp${r.price}</h6>
+                    </div>
+                    <img width="100%" src="${base+'assets/images/menu/'+r.photo}" alt="Menu Image" style="height: 150px; object-fit: cover; width: 100%;">
+                    <div class="card-body" style="    
+                        padding-right: 0;
+                        width: 100%;
+                        padding-left: 0;
+                        display: flex;
+                        flex-direction: row;">
+                        <span class="my-span" style="
+                            color: ${r.fgcolor};
+                            background: ${r.bgcolor};
+                        ">${r.category_name}</span>
+                        <div style="margin-left: auto;">
+                            <button class="btn-icon btn-icon-only btn btn-outline-alternate" onclick="editAction(${r.id})" data-toggle="tooltip" data-original-title="Edit">
+                                <i class="fa fa-edit fa-w-20 btn-icon-wrapper"> </i>
+                            </button>
+                            <button class="btn-icon btn-icon-only btn btn-outline-danger" onclick="deleteAction(${r.id})" data-toggle="tooltip" data-original-title="Delete">
+                                <i class="fa fa-trash fa-w-20 btn-icon-wrapper"> </i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `).fadeIn();
+        })
     }
 </script>

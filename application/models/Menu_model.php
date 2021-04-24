@@ -5,7 +5,14 @@
     public function list($p = [])
     {
         $q = $this->db
-        ->select()->from('menu')
+        ->select([
+            'menu.*',
+            'category.name category_name',
+            'category.fgcolor',
+            'category.bgcolor',
+        ])
+        ->from('menu')
+        ->join('category', 'menu.category = category.id', 'left')
         ->order_by('id', 'desc')
         ;
         
@@ -56,6 +63,15 @@
         $this->db->delete('menu');
         
         return ($this->db->affected_rows() > 0) ? true : false ;
+    }
+
+    public function list_category()
+    {
+        $q = $this->db
+        ->select()->from('category')
+        ->order_by('id', 'asc');
+
+        return $q->get()->result_array();
     }
 
 }

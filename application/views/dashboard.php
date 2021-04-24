@@ -62,7 +62,7 @@
 							<li class="mn_gallery"><a href="<?=site_url('gallery')?>">Gallery</a></li>
 							<li class="mn_reservation"><a href="<?=site_url('reservation')?>">Reservation</a></li>
 							<li class="mn_about"><a href="<?=site_url('about')?>">About</a></li>
-							<li class="mn_contact"><a href="<?=site_url('contact')?>">Contact</a></li>
+							<li class="mn_contact"><a href="<?=site_url('contact')?>">Testimony</a></li>
 						</ul>
 					</div>
 				</div>
@@ -93,8 +93,7 @@
 					<h4>Contact Information</h4>
 					<ul class="fh5co-footer-links"> 
 						<li><?=$profile['address'].', '.$profile['city'].' '.$profile['zip'] ?> <br> <?=$profile['state'] ?></li>
-						<li><a href="tel://1234567920">0812-1341-7778</a></li>
-						<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+						<li><a href="tel://081213417778">0812-1341-7778</a></li>
 					</ul>
 				</div>
 

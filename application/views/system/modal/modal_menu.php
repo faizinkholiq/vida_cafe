@@ -1,5 +1,5 @@
 <div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Add New Menu</h5>
@@ -12,12 +12,19 @@
                     <input id="idMenu" type="hidden" name="id" />
                     <div class="position-relative form-group">
                         <label for="tbName" class="">Name</label>
-                        <input id="tbName" name="name" placeholder="Name" type="text" class="mb-2 form-control"
+                        <input id="tbName" name="name" placeholder="Name" type="text" class="col-md-10 mb-2 form-control"
                             required>
+                    </div>
+                    <div class="position-relative form-group"><label for="slcCategory" class="">Category</label>
+                        <select name="category" id="slcCategory" class="form-control col-md-10">
+                            <?php foreach($list_category as $key => $row): ?>
+                                <option value="<?=$row['id'] ?>"><?=$row['name'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="position-relative form-group">
                         <label for="tbPrice" class="">Price</label>
-                        <input id="tbPrice" name="price" placeholder="Rp." type="text" class="mb-2 form-control">
+                        <input id="tbPrice" name="price" placeholder="Rp." type="text" class="col-md-10 mb-2 form-control">
                     </div>
                     <div class="position-relative form-group">
                         <label for="fileMenu" class="">File</label>
@@ -40,7 +47,7 @@
                     </div>
                     <div class="position-relative form-group">
                         <label for="txtDescription" class="">Description</label>
-                        <textarea name="description" id="txtDescription" class="form-control"></textarea>
+                        <textarea name="description" id="txtDescription" class="form-control col-md-11"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
