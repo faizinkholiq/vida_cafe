@@ -139,7 +139,7 @@
                             <li>
                                 <a id="mn_inbox" href="<?=site_url('admin/inbox')?>">
                                     <i class="metismenu-icon pe-7s-mail"></i>
-                                    Inbox
+                                    Testimony
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Master</li>

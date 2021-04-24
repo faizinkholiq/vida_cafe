@@ -17,7 +17,7 @@
                 <i class="pe-7s-mail icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Inbox
+            <div>Testimony
                 <div class="page-title-subheading">View mail from customers </div>
             </div>
         </div>
