@@ -142,7 +142,7 @@
                         <span class="my-span" style="
                             color: <?=$value['fgcolor'] ?>;
                             background: <?=$value['bgcolor'] ?>;
-                        "><?=$value['category_name'] ?></span>
+                        "><?=!empty($value['category_name'])? $value['category_name'] : "" ; ?></span>
                         <div style="margin-left: auto;">
                             <button class="btn-icon btn-icon-only btn btn-outline-alternate" onclick="editAction(<?=!empty($value['id'])? $value['id'] : '' ;  ?>)" data-toggle="tooltip" data-original-title="Edit">
                                 <i class="fa fa-edit fa-w-20 btn-icon-wrapper"> </i>
@@ -252,7 +252,7 @@
                         <span class="my-span" style="
                             color: ${r.fgcolor};
                             background: ${r.bgcolor};
-                        ">${r.category_name}</span>
+                        ">${r.category_name != null? r.category_name : ''}</span>
                         <div style="margin-left: auto;">
                             <button class="btn-icon btn-icon-only btn btn-outline-alternate" onclick="editAction(${r.id})" data-toggle="tooltip" data-original-title="Edit">
                                 <i class="fa fa-edit fa-w-20 btn-icon-wrapper"> </i>
