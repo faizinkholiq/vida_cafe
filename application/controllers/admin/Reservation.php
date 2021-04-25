@@ -30,20 +30,26 @@ class Reservation extends CI_Controller {
         if($this->reservation_model->create($nd)){
             $data = [
                 'success' => 1,
-                'message' => 'Create data success ',
+                'message' => 'Terimakasih Telah Melakukan Pemesanan, Silahkan Cetak Tiket Booking Anda',
             ];
         }else{
             $data = [
                 'success' => 0,
-                'message' => 'Create data failed ',
+                'message' => 'Booking gagal silahkan coba kembali atau hubungi admin. Terima kasih :)',
             ];
         }
 
-        if($data['success'] === 1){
-            redirect('reservation/');
-        }else{
-            echo json_encode($data);
-        }
+        $this->session->set_flashdata('msg', $data);
+        redirect('reservation/');
+    }
+
+    public function print($id)
+    {
+        $mpdf = new \Mpdf\Mpdf();
+        $html = $this->load->view('print/booking',[],true);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output(); // buka dengan browser
+        //$mpdf->Output('aliakbar_MPDF.pdf','D'); // ini akan mendownload file dengan nama alaiakbar_mPD
     }
 
     public function get_input()
