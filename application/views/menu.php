@@ -161,7 +161,7 @@
 				class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box"
 				style="margin-top:50px; cursor: pointer;">
 				<div class="fh5co-item" style="height: 35rem;">
-					<img src="<?=base_url('assets/images/menu/').$value['photo'] ?>" class="img-responsive"
+					<img data-src="<?=base_url('assets/images/menu/').$value['photo'] ?>" class="img-responsive lozad"
 						loading="lazy" alt="<?=$value['name'] ?>" style="
 								width: 255px;
 								height: 170px;
@@ -207,11 +207,14 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
 <script>
-	let data = <?=json_encode($menu) ?> ;
-	let base = '<?=base_url() ?>';
-
+	const data = <?=json_encode($menu) ?> ;
+	const base = '<?=base_url() ?>';
+	const observer = lozad();
+		
 	$(document).ready(function(){
+		observer.observe()
 		$('#menu_modal').find('div').click(function(e){
 			e.stopPropagation();
 		})

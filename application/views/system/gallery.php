@@ -55,7 +55,7 @@
         <?php foreach($data as $key => $value): ?>
         <div class="mb-3 col-md-4 row" style="margin:0">
             <div class="main-card col-md-12 card" style="padding: 0; border-radius: 10px;">
-                <img width="100%" src="<?=!empty($value['source'])? base_url('assets/images/gallery/').$value['source'] : '' ;  ?>" alt="Card image cap" style="height: 14rem; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                <img class="lozad" width="100%" data-src="<?=!empty($value['source'])? base_url('assets/images/gallery/').$value['source'] : '' ;  ?>" alt="Card image cap" style="height: 14rem; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                 <div class="card-body" style="    
                     text-align: end;
                     width: 100%;">
@@ -81,12 +81,16 @@
     </div>
 </div>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
 <script>
     let data = <?=json_encode($data) ?>;
     let base = '<?=base_url() ?>';
     let flash_msg = <?=json_encode($this->session->flashdata('msg')) ?>;
+	const observer = lozad();
 
     $(document).ready(function () {
+		observer.observe()
+
         if(flash_msg != null)
             (flash_msg.success === 1)? showMessage('#my-toast', 'success', flash_msg.message) : showMessage('#my-toast', 'danger', flash_msg.message) 
     });

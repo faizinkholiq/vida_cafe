@@ -5,7 +5,7 @@
 				<div class="col-md-12 text-center">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn" style="padding-top: 5vw;">
-							<img src="<?=base_url('assets/images/profile/').$profile['logo'] ?>" style="    
+							<img class="lozad" data-src="<?=base_url('assets/images/profile/').$profile['logo'] ?>" style="    
 								    width: 14vw;
 									filter: grayscale(1);
 									margin-bottom: 5vh;">
@@ -21,7 +21,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-pull-4 img-wrap animate-box" data-animate-effect="fadeInLeft">
-					<img src="<?=base_url('assets/images/profile/').$profile['cover'] ?>" alt="Vida Cafe & Bistro" style="
+					<img class="lozad" data-src="<?=base_url('assets/images/profile/').$profile['cover'] ?>" alt="Vida Cafe & Bistro" style="
 						width: 615px;
 						height: 380px;
 						object-fit: cover;
@@ -31,7 +31,7 @@
 				<div class="col-md-5 col-md-push-1 animate-box">
 					<div class="section-heading">
 						<h2>The Restaurant</h2>
-						<p><?=$profile['story'] ?></p>
+						<p style="text-align: justify;"><?=$profile['story'] ?></p>
 						<p><a href="<?=site_url('about')?>" class="btn btn-primary btn-outline">Our History</a></p>
 					</div>
 				</div>
@@ -53,7 +53,7 @@
 				<?php foreach($favorite_menu as $key => $value): ?>
 				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box">
 					<div class="fh5co-item">
-						<img src="<?=base_url('assets/images/menu/').$value['photo']?>" class="img-responsive" loading="lazy" alt="Kopi" style="
+						<img data-src="<?=base_url('assets/images/menu/').$value['photo']?>" class="lozad img-responsive" loading="lazy" alt="Kopi" style="
 							    width: 255px;
 								height: 170px;
 								object-fit: cover;
@@ -76,7 +76,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-5 animate-box img-to-responsive animate-box" data-animate-effect="fadeInLeft">
-							<img src="<?=base_url('assets/public/')?>images/bob_sadino.jpeg" alt="" style="width: 100%;object-fit: contain; filter: grayscale(1);">
+							<img class="lozad" data-src="<?=base_url('assets/public/')?>images/bob_sadino.jpeg" alt="" style="width: 100%;object-fit: contain; filter: grayscale(1);">
 					</div>
 					<div class="col-md-7 animate-box" data-animate-effect="fadeInRight">
 						<blockquote>
@@ -140,3 +140,11 @@
 			</div>
 		</div>
 	</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+<script>
+	const observer = lozad();
+	$(document).ready(function(){
+		observer.observe()
+	});
+</script>

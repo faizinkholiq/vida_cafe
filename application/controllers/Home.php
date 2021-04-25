@@ -21,7 +21,7 @@ class Home extends CI_Controller {
 			"favorite" => true,
 			"limit" => 4,
 		]);		
-				
+
 		$d['highlight_menu'] = 'home';
 		$d['content_view'] = 'index';
 		$this->load->view('dashboard', $d);

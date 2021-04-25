@@ -27,21 +27,30 @@
 			</div>
 			
 			<?php foreach($menu as $key => $value): ?>
-				<div class="col-md-3 col-sm-3 fh5co-gallery_item"><div class="fh5co-bg-img" style="background-image: url(<?=base_url('assets/images/gallery/').$value['source'] ?>);" data-trigger="zoomerang"></div></div>
+				<div class="col-md-3 col-sm-3 fh5co-gallery_item">
+					<div class="fh5co-bg-img lozad" data-background-image="<?=base_url('assets/images/gallery/').$value['source'] ?>" data-trigger="zoomerang"></div>
+				</div>
 			<?php endforeach; ?>
 		</div>
 	</div>
 </div>
 
-<script src="<?=base_url('assets/public/')?>js/zoomerang.js"></script>
+<script type="text/javascript" src="<?=base_url('assets/public/')?>js/zoomerang.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
 <script>
-	Zoomerang
-	.config({
-	maxHeight: 600,
-	maxWidth: 900,
-	bgColor: '#000',
-	bgOpacity: .85
-	})
-	.listen('[data-trigger="zoomerang"]')
+	const observer = lozad();
+
+	$(document).ready(function(){
+		observer.observe()
+		
+		Zoomerang
+		.config({
+		maxHeight: 600,
+		maxWidth: 900,
+		bgColor: '#000',
+		bgOpacity: .85
+		})
+		.listen('[data-trigger="zoomerang"]')
+	});
 </script>
 

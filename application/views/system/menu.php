@@ -132,7 +132,7 @@
                         <h5 class="card-title"><?=!empty($value['name'])? $value['name'] : '' ;  ?></h5>
                         <h6 class="mb-0 card-subtitle">Rp<?=!empty($value['price'])? number_format($value['price'],2,',','.') : '' ;  ?></h6>
                     </div>
-                    <img width="100%" src="<?=!empty($value['photo'])? base_url('assets/images/menu/').$value['photo'] : '' ;  ?>" alt="Menu Image" style="height: 150px; object-fit: cover; width: 100%;">
+                    <img class="lozad" width="100%" data-src="<?=!empty($value['photo'])? base_url('assets/images/menu/').$value['photo'] : '' ;  ?>" alt="Menu Image" style="height: 150px; object-fit: cover; width: 100%;">
                     <div class="card-body" style="    
                         padding-right: 0;
                         width: 100%;
@@ -171,13 +171,17 @@
     </div>
 </div>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
 <script>
     let data = <?=json_encode($data) ?>;
     let base = '<?=base_url() ?>';
     let site = '<?=site_url() ?>';
     let flash_msg = <?=json_encode($this->session->flashdata('msg')) ?>;
+	const observer = lozad();
 
     $(document).ready(function () {
+		observer.observe()
+
         if(flash_msg != null)
             (flash_msg.success === 1)? showMessage('#my-toast', 'success', flash_msg.message) : showMessage('#my-toast', 'danger', flash_msg.message) 
     });
