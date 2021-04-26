@@ -27,29 +27,22 @@ class Reservation extends CI_Controller {
     {
         $nd = $this->get_input();
 
-        if($this->reservation_model->create($nd)){
+        if($create = $this->reservation_model->create($nd)){
             $data = [
                 'success' => 1,
                 'message' => 'Terimakasih Telah Melakukan Pemesanan, Silahkan Cetak Tiket Booking Anda',
+                'new_id' => $create,
             ];
         }else{
             $data = [
                 'success' => 0,
                 'message' => 'Booking gagal silahkan coba kembali atau hubungi admin. Terima kasih :)',
+                'new_id' => $create,                
             ];
         }
 
         $this->session->set_flashdata('msg', $data);
         redirect('reservation/');
-    }
-
-    public function print($id)
-    {
-        $mpdf = new \Mpdf\Mpdf();
-        $html = $this->load->view('print/booking',[],true);
-        $mpdf->WriteHTML($html);
-        $mpdf->Output(); // buka dengan browser
-        //$mpdf->Output('aliakbar_MPDF.pdf','D'); // ini akan mendownload file dengan nama alaiakbar_mPD
     }
 
     public function get_input()
@@ -58,7 +51,8 @@ class Reservation extends CI_Controller {
         $nd["name"] = $this->input->post('name');     
         $nd["contact"] = $this->input->post('contact');     
         $nd["people"] = $this->input->post('people');  
-        $nd["time"] = !empty($this->input->post('time'))? date_create($this->input->post('time'))->format('Y-m-d H:i:s') : null;  
+        $nd["time"] = !empty($this->input->post('time'))? date_create($this->input->post('time'))->format('Y-m-d H:i:s') : null; 
+        $nd['book_date'] = date('Y-m-d H:i:s'); 
 
         return $nd;
     }

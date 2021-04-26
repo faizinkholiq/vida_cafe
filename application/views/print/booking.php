@@ -2,21 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Welcome to CodeIgniter</title>
+    <title><?=ucwords($profile['name']); ?></title>
+    <style></style>
 </head>
 <body>
  
 <div id="container">
-    <h1>Welcome to CodeIgniter!</h1>
- 
+    <div class="title" style="width: 100%; text-align: center;">
+        <img height="20mm" style="margin-bottom:5px;" src="<?=base_url('assets/images/profile/').$profile['logo'] ?>" />
+        <h3>RESTAURANT BOOKING FORM <br/> <?=strtoupper($profile['name']); ?></h3>
+    </div><br/>
     <div id="body">
-        <p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
- 
-        <p>If you would like to edit this page you'll find it located at:</p>
-application/views/welcome_message.php
-        <p>The corresponding controller for this page is found at:</p>
-application/controllers/Welcome.php
-        <p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+        <table>
+            <tr>
+                <td>Form Code</td>
+                <td width="20px">:</td>
+                <td><?=$detail['code']; ?></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td width="20px">:</td>
+                <td><?=$detail['name']; ?></td>
+            </tr>
+            <tr>
+                <td>Booking Date</td>
+                <td width="20px">:</td>
+                <td><?=$detail['book_date']; ?></td>
+            </tr>
+            <tr>
+                <td>Time of Arrival</td>
+                <td width="20px">:</td>
+                <td><?=$detail['time']; ?></td>
+            </tr>
+            <tr>
+                <td>Number of Guests</td>
+                <td width="20px">:</td>
+                <td><?=$detail['people']; ?></td>
+            </tr>
+        </table><br/>
+        <p style="text-indent: 20px;">
+            Untuk mengkonfirmasi pemesanan silahkan dapat dilanjutkan dengan 
+            menghubungi Nomor Whatsapp Vida Café <b>(+62 812-1341-7778)</b>, 
+            dengan menyertakan nama dan kode pemesanan.
+        </p>
+        <p>Terima Kasih.</p> 
     </div>
  
 </div>

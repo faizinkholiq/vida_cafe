@@ -9,6 +9,12 @@
 
     public function detail($id)
     {
+        $this->db->select([
+            '*',
+            "CONCAT('BOOK-', DATE_FORMAT(book_date, '%Y%M%D'), 'id') `code`", 
+            "DATE_FORMAT(`time`, '%W %h:%i%p, %e %M %Y') `time`", 
+            "DATE_FORMAT(book_date, '%W %h:%i%p, %e %M %Y') book_date"
+        ]);
         return $this->db->get_where('reservation', ['id'=>$id])->row_array();
     }
 
