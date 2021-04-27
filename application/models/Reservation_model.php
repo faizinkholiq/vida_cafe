@@ -4,14 +4,18 @@
     
     public function list()
     {
-        return $this->db->select()->from('reservation')->order_by('id', 'desc')->get()->result_array();
+        return $this->db->select([
+            '*',
+            "CONCAT('BOOK-', DATE_FORMAT(book_date, '%Y%m%d'), id) `code`",
+        ])
+        ->from('reservation')->order_by('id', 'desc')->get()->result_array();
     }
 
     public function detail($id)
     {
         $this->db->select([
             '*',
-            "CONCAT('BOOK-', DATE_FORMAT(book_date, '%Y%M%D'), 'id') `code`", 
+            "CONCAT('BOOK-', DATE_FORMAT(book_date, '%Y%m%d'), id) `code`", 
             "DATE_FORMAT(`time`, '%W %h:%i%p, %e %M %Y') `time`", 
             "DATE_FORMAT(book_date, '%W %h:%i%p, %e %M %Y') book_date"
         ]);
@@ -22,7 +26,7 @@
     {
         $this->db->insert('reservation', $data);
 
-        return ($this->db->affected_rows()>0) ? true : false;
+        return $this->db->insert_id();
     }
 
     public function edit($data)

@@ -92,6 +92,10 @@
 		opacity: 0.7;
 		transition: all 0.5s ease;
 	}
+
+	.custom_select option{
+		color: #555;
+	}
 </style>
 <header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(<?=base_url('assets/public/')?>images/bc.png);" data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
@@ -174,7 +178,7 @@
 				<p id="my_message">Terimakasih Telah Melakukan Pemesanan, Silahkan Cetak Tiket Booking Anda</p>
 			</div>
 			<div class="my-modal-footer">
-				<button id="btn_print_invoice" type="button" class="btn btn-primary btn-outline" onclick="CloseModal('reservation_modal')" style="height: 4rem;">Print Invoice</button>
+				<button id="btn_print_invoice" type="button" class="btn btn-primary btn-outline" data-id="" style="height: 4rem;" onclick="PrintAction()">Print Invoice</button>
 				<button id="btn_close" type="button" class="btn btn-primary btn-outline" onclick="CloseModal('reservation_modal')" style="height: 4rem;">Close</button>
 			</div>
 		</div>
@@ -185,20 +189,29 @@
 <script src="<?=base_url('assets/public/')?>js/bootstrap-datetimepicker.js"></script>
 <script>
 	let flash_msg = <?=json_encode($this->session->flashdata('msg')) ?>;
+	let site = "<?=site_url() ?>";
 
 	$(document).ready(function(){
 		if(flash_msg != null){
 			if(flash_msg.success === 1){
 				$('#btn_close').hide();
 				$('#btn_print_invoice').show();
+				$('#btn_print_invoice').attr('data-id', flash_msg.new_id);
 			}else{
 				$('#btn_close').show();
 				$('#btn_print_invoice').hide();
+				$('#btn_print_invoice').attr('data-id', null);
 			} 
 			$('#my_message').text(flash_msg.message);
 			OpenModal('reservation_modal')
 		}
 	});
+
+	function PrintAction() {
+		const id = $('#btn_print_invoice').data('id');
+		window.open(site+"/reservation/print/"+id, '_blank');
+		CloseModal('reservation_modal')
+	}
 
 	function OpenModal(el) {
 		$('#' + el).css({

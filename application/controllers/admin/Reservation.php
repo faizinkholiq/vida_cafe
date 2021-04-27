@@ -37,7 +37,7 @@ class Reservation extends CI_Controller {
             $data = [
                 'success' => 0,
                 'message' => 'Booking gagal silahkan coba kembali atau hubungi admin. Terima kasih :)',
-                'new_id' => $create,                
+                'new_id' => 0,                
             ];
         }
 
@@ -55,5 +55,38 @@ class Reservation extends CI_Controller {
         $nd['book_date'] = date('Y-m-d H:i:s'); 
 
         return $nd;
+    }
+
+    public function approved($id, $status)
+    {
+        $detail = $this->reservation_model->detail($id);
+
+        if($detail){
+            $nd['id'] = $id;
+            $nd['status'] = $status == 1? 'Approved' : 'Refused';
+
+            if($this->reservation_model->edit($nd)){
+                $data = [
+                    'success' => 1,
+                    'message' => 'Update data success ',
+                ];
+            }else{
+                $data = [
+                    'success' => 0,
+                    'message' => 'Update data failed ',
+                ];
+            }
+        }else{
+            $data = [
+                'success' => 0,
+                'message' => 'Invalid ID',
+            ];
+        }
+
+        if($data['success'] === 1){
+            redirect('admin/reservation/');
+        }else{
+            echo json_encode($data);
+        }
     }
 }

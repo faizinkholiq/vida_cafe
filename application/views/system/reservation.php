@@ -1,4 +1,20 @@
+<style>
+.approve-btn{
+    margin: 0 10px;
+    font-size: 20px;
+    color: #aaa;
+    font-weight: bold;
+    cursor: pointer;
+}
 
+.approve-btn.approved{
+    color: #05c46b;
+}
+
+.approve-btn.refused{
+    color: #ff3f34;
+}
+</style>
 <div class="app-page-title">
     <div class="page-title-wrapper">
         <div class="page-title-heading">
@@ -22,25 +38,27 @@
                     <thead>
                         <tr>
                             <th class="text-center">#</th>
+                            <th width="18%">ID</th>
                             <th width="18%">Time</th>
-                            <th width="25%">Name</th>
+                            <th width="20%">Name</th>
                             <th class="text-center">Many (People)</th>
                             <th>Contact</th>
-                            <!-- <th class="text-center">Actions</th> -->
+                            <th class="text-center">Approved</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php $num = 1; foreach($data as $key => $value): ?>
                         <tr>
                             <td class="text-center text-muted"><?=$num++ ?></td>
+                            <td><?=$value['code'] ?></td>
                             <td><?=$value['time'] ?></td>
                             <td><?=$value['name'] ?></td>
                             <td class="text-center"><?=$value['people'] ?></td>
                             <td><?=$value['contact'] ?></td>
-                            <!-- <td class="text-center">
-                                <button onclick="viewAction(<?=$value['id'] ?>)" class="mr-2 btn-icon btn-icon-only btn btn-outline-primary"><i class="fa fa-eye fa-w-20 btn-icon-wrapper"> </i></button>
-                                <button onclick="deleteAction(<?=$value['id'] ?>)" class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="fa fa-trash fa-w-20 btn-icon-wrapper"> </i></button>
-                            </td> -->
+                            <td class="text-center">
+                                <a data-toggle="tooltip" title="Approved" href="<?=site_url('admin/reservation/approved/'.$value['id'].'/1')?>"><i class="fa fa-check fa-w-20 btn-icon-wrapper approve-btn <?=strtolower($value['status']) == 'approved'? 'approved' : '' ?>"> </i></a>
+                                <a data-toggle="tooltip" title="Refused" href="<?=site_url('admin/reservation/approved/'.$value['id'].'/2')?>"><i class="fa fa-times fa-w-20 btn-icon-wrapper approve-btn <?=strtolower($value['status']) == 'refused'? 'refused' : '' ?>"> </i></a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
