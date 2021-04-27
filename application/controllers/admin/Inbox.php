@@ -85,4 +85,34 @@ class Inbox extends CI_Controller {
         $this->session->set_flashdata('msg', $data);
         redirect('admin/inbox/');
     }
+
+    public function showed($id, $show)
+    {
+        $detail = $this->inbox_model->detail($id);
+
+        if($detail){
+            $nd['id'] = $id;
+            $nd['showed'] = $show;
+
+            if($this->inbox_model->edit($nd)){
+                $data = [
+                    'success' => 1,
+                    'message' => 'Update data success ',
+                ];
+            }else{
+                $data = [
+                    'success' => 0,
+                    'message' => 'Update data failed ',
+                ];
+            }
+        }else{
+            $data = [
+                'success' => 0,
+                'message' => 'Invalid ID',
+            ];
+        }
+
+        $this->session->set_flashdata('msg', $data);
+        redirect('admin/inbox/');
+    }
 }

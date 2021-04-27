@@ -1,3 +1,17 @@
+<style>
+    .btn-show-action{
+        margin: 0 10px;
+        font-size: 20px;
+        color: #aaa;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .btn-show-action.show{
+        color: #555;
+    }
+</style>
+
 <div id="my-toast" class="alert alert-dismissible fade show" role="alert" style="
     width: max-content;
     position: fixed;
@@ -35,7 +49,8 @@
                             <th class="text-center">#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th class="text-center">Actions</th>
+                            <th class="text-center" width="15%">Show</th>
+                            <th class="text-center" width="15%">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,8 +60,19 @@
                             <td><?=$value['name'] ?></td>
                             <td><?=$value['email'] ?></td>
                             <td class="text-center">
-                                <button onclick="viewAction(<?=$value['id'] ?>)" class="mr-2 btn-icon btn-icon-only btn btn-outline-primary"><i class="fa fa-eye fa-w-20 btn-icon-wrapper"> </i></button>
-                                <button onclick="deleteAction(<?=$value['id'] ?>)" class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="fa fa-trash fa-w-20 btn-icon-wrapper"> </i></button>
+                                <?php if($value['showed']): ?>
+                                    <a href="<?=site_url('admin/inbox/showed/'.$value['id'].'/0') ?>">
+                                        <i class="fa fa-eye fa-w-20 btn-icon-wrapper btn-show-action show" data-toggle="tooltip" title="Show"> </i>
+                                    </a>
+                                <?php else: ?>
+                                    <a href="<?=site_url('admin/inbox/showed/'.$value['id'].'/1') ?>">
+                                        <i class="fa fa-eye-slash fa-w-20 btn-icon-wrapper btn-show-action" data-toggle="tooltip" title="Hide"> </i>
+                                    </a>
+                                <?php endif; ?>
+                            </td>
+                            <td class="text-center">
+                                <button data-toggle="tooltip" title="View" onclick="viewAction(<?=$value['id'] ?>)" class="mr-2 btn-icon btn-icon-only btn btn-outline-primary"><i class="fa fa-envelope-open fa-w-20 btn-icon-wrapper"> </i></button>
+                                <button data-toggle="tooltip" title="Delete" onclick="deleteAction(<?=$value['id'] ?>)" class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="fa fa-trash fa-w-20 btn-icon-wrapper"> </i></button>
                             </td>
                         </tr>
                     <?php endforeach; ?>

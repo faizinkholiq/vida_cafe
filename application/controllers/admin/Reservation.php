@@ -83,10 +83,7 @@ class Reservation extends CI_Controller {
             ];
         }
 
-        if($data['success'] === 1){
-            redirect('admin/reservation/');
-        }else{
-            echo json_encode($data);
-        }
+        echo json_encode($data);
+        redirect('admin/reservation/');
     }
 }
