@@ -36,9 +36,9 @@
 			<div class="col-md-6 col-sm-12">
 				<div class="testimony-container">
 					<?php foreach($list_testimony as $key => $value): ?>
-						<div class="testimony-item">
-							<div class="item-header">
-								<?=$value['name']?><span class="item-email"><<?=$value['email']?>></span>
+						<div class="testimony-item" style="margin-bottom: 2rem;">
+							<div class="item-header" style="color: white">
+								<?=$value['name']?><span style="margin-left:10px; font-weight: bold;" class="item-email">&lt;<?=$value['email']?>&gt;</span>
 							</div>
 							<div class="item-body" style="color: white"><?=$value['message']?></div>
 						</div>
