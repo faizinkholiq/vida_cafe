@@ -33,7 +33,19 @@
 		</div>
 		
 		<div class="row">
-			<div class="col-md-6 col-md-push-6 col-sm-6 col-sm-push-6">
+			<div class="col-md-6 col-sm-12">
+				<div class="testimony-container">
+					<?php foreach($list_testimony as $key => $value): ?>
+						<div class="testimony-item">
+							<div class="item-header">
+								<?=$value['name']?><span class="item-email"><<?=$value['email']?>></span>
+							</div>
+							<div class="item-body" style="color: white"><?=$value['message']?></div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-12">
 				<form action="<?=site_url('admin/inbox/send') ?>" id="form-wrap" method="POST">
 					<div class="row form-group">
 						<div class="col-md-12">
