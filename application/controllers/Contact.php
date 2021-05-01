@@ -16,7 +16,7 @@ class Contact extends CI_Controller {
         $d['profile'] = $this->home_model->detail(1);		
 		$d['highlight_menu'] = 'contact';
 		$d['content_view'] = 'contact';
-		$d['list_testimony'] = $this->inbox_model->list();
+		$d['list_testimony'] = $this->inbox_model->list(["showed" => true]);
 		$this->load->view('dashboard', $d);
 	}
 

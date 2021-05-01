@@ -6,6 +6,95 @@
 	#fh5co-contact {
 		padding: 5em 0 1em;
 	}
+
+	.testimony-container{
+		padding: 1rem 2rem;
+		max-height: 60rem;
+   		overflow: auto;
+	}
+
+	.testimony-container::-webkit-scrollbar {
+		width: 8px;
+	}
+
+		/* Track */
+	.testimony-container::-webkit-scrollbar-track {
+		border-radius: 30px;
+	}
+
+		/* Handle */
+	.testimony-container::-webkit-scrollbar-thumb {
+		background: #fff;;
+		border-radius: 30px;
+	}
+
+
+	.testimony-item.left{
+		margin-bottom: 2rem;
+		background: #eaeaea;
+		padding: 1.5rem 2rem;
+		border-radius: 2rem;
+		color: #46464a;
+		width: 80%;
+    	float: left;
+	}
+
+	.testimony-item.right{
+		margin-bottom: 2rem;
+		background: #6c6fd6;
+		padding: 1.5rem 2rem;
+		border-radius: 2rem;
+		color: white;
+		width: 80%;
+    	float: right;
+	}
+
+	.testimony-item.right .item-header{
+		float: right;
+	}
+
+	.testimony-item.right .item-body{
+		float: left;
+	}
+
+	.testimony-item .item-header{
+		font-size: 2rem;
+		font-weight: bold;
+		margin-bottom: 1rem;
+	}
+
+	.testimony-item .item-header .item-email{
+		margin-left:10px;
+	}
+
+	.testimony-item .item-body{
+		margin-bottom: 1rem;
+		text-align: justify;
+	}
+
+	.testimony-pagination{
+		display: flex;
+   		justify-content: center;
+		margin-top: 3rem;
+	}
+
+	.testimony-pagination .pagination a {
+		color: white;
+		float: left;
+		padding: 5px 16px;
+		text-decoration: none;
+		font-size: 20px;
+		font-family: monospace;
+	}
+
+	.paginationjs-page.active {
+		background: #e9262c;
+	}
+
+	.paginationjs-pages ul{
+		display: flex;
+    	list-style: none;
+	}
 </style>
 <header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image: url(<?=base_url('assets/public/')?>images/bc.png);" data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
@@ -34,15 +123,18 @@
 		
 		<div class="row">
 			<div class="col-md-6 col-sm-12">
-				<div class="testimony-container">
+				<div class="testimony-container" id="data-container">
 					<?php foreach($list_testimony as $key => $value): ?>
-						<div class="testimony-item" style="margin-bottom: 2rem;">
-							<div class="item-header" style="color: white">
-								<?=$value['name']?><span style="margin-left:10px; font-weight: bold;" class="item-email">&lt;<?=$value['email']?>&gt;</span>
+						<div class="testimony-item <?=($key%2==0)? 'left' : 'right'; ?>" style="margin-bottom: 2rem;">
+							<div class="item-header">
+								<?=$value['name']?><span class="item-email">&lt;<?=$value['email']?>&gt;</span>
 							</div>
-							<div class="item-body" style="color: white"><?=$value['message']?></div>
+							<div class="item-body"><?=$value['message']?></div>
 						</div>
 					<?php endforeach; ?>
+				</div>
+				<div class="testimony-pagination">
+					<div class="pagination" id="pagination-container"></div>
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-12">
@@ -77,3 +169,34 @@
 
 	</div>
 </div>
+
+<script src="<?=base_url('assets/public/')?>js/pagination.min.js"></script>
+<script>
+let data = <?=json_encode($list_testimony); ?>
+
+$(document).ready(function(){
+	$('#pagination-container').pagination({
+		dataSource: data,
+		pageSize: 5,
+		callback: function(data, pagination) {
+			var html = simpleTemplating(data);
+        	$('#data-container').html(html);
+		}
+	})
+});
+
+function simpleTemplating(data) {
+    var html = '';
+    $.each(data, function(index, item){
+		html += `
+			<div class="testimony-item ${index%2=== 0? 'left' : 'right' }" style="margin-bottom: 2rem;">
+				<div class="item-header">
+					${item.name}<span class="item-email">&lt;${item.email}&gt;</span>
+				</div>
+				<div class="item-body">${item.message}</div>
+			</div>`
+    });
+    return html;
+}
+
+</script>

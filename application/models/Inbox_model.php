@@ -2,9 +2,17 @@
 
  class Inbox_model extends CI_Model {
     
-    public function list()
+    public function list($p = null)
     {
-        return $this->db->select()->from('inbox')->order_by('id', 'desc')->get()->result_array();
+        $this->db->select()
+        ->from('inbox')
+        ->order_by('id', 'desc');
+
+        if(!empty($p['showed']))
+            $this->db->where('showed', $p['showed']);
+        
+        $q = $this->db->get();
+        return $q->result_array();
     }
 
     public function detail($id)
