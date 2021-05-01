@@ -31,7 +31,7 @@
 
 	.testimony-item.left{
 		margin-bottom: 2rem;
-		background: #eaeaea;
+		background: #f9f9f9;
 		padding: 1.5rem 2rem;
 		border-radius: 2rem;
 		color: #46464a;
