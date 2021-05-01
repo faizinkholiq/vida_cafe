@@ -47,11 +47,10 @@
             <div class="card-header">List reservation
             </div>
             <div class="table-responsive">
-                <div class="row">
+                <div class="row col-md-12">
                     <div class="col-md-12 mb-2 " style="
                         display: flex;
                         padding: 1rem;
-                        margin-left: 1rem;
                     ">
                     <input name="name" id="tbBookID" placeholder="Search by Book ID" type="text" class="form-control col-md-3" style="
                         border-top-right-radius: 0;
