@@ -62,6 +62,8 @@
 		font-size: 2rem;
 		font-weight: bold;
 		margin-bottom: 1rem;
+		width: 100%;
+		height: auto;
 	}
 
 	.testimony-item .item-header .item-email{
@@ -71,6 +73,7 @@
 	.testimony-item .item-body{
 		margin-bottom: 1rem;
 		text-align: justify;
+		width: 100%;
 	}
 
 	.testimony-pagination{
@@ -185,7 +188,7 @@ function simpleTemplating(data) {
 		html += `
 			<div class="testimony-item ${index%2=== 0? 'left' : 'right' }" style="margin-bottom: 2rem;">
 				<div class="item-header">
-					${item.name}<span class="item-email">&lt;${item.email}&gt;</span>
+					${item.name} &lt;${item.email}&gt;
 				</div>
 				<div class="item-body">${item.message}</div>
 			</div>`

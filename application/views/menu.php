@@ -103,6 +103,7 @@
 		font-family: 'Satisfy', cursive;
 		display: flex;
 		flex-direction: row;
+		width: 100%;
 	}
 	.sub-category:before, .sub-category:after{
 		content: "";
@@ -157,10 +158,9 @@
 			</div>
 			<?php foreach($menu as $key => $value): ?>
 			<?php if($value['category'] == $v['id']): ?>
-			<div onclick="DetailAction(<?=$value['id']?>)"
-				class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box"
+			<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-item-wrap animate-box"
 				style="margin-top:50px; cursor: pointer;">
-				<div class="fh5co-item" style="height: 35rem;">
+				<div onclick="DetailAction(<?=$value['id']?>)" class="fh5co-item" style="height: 35rem;">
 					<img data-src="<?=base_url('assets/images/menu/').$value['photo'] ?>" class="img-responsive lozad"
 						loading="lazy" alt="<?=$value['name'] ?>" style="
 								width: 255px;

@@ -17,12 +17,11 @@
 	<div id="fh5co-about" class="fh5co-section" style="padding-bottom: 0">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-md-pull-4 img-wrap animate-box" data-animate-effect="fadeInLeft">
+				<div class="col-md-6 img-wrap animate-box" data-animate-effect="fadeInLeft">
 					<img src="<?=base_url('assets/images/profile/').$profile['cover'] ?>" alt="Vida Cafe & Bistro" style="
 						width: 615px;
 						height: 380px;
 						object-fit: cover;
-						margin-left: 39rem;
 					">
 				</div>
 				<div class="col-md-5 col-md-push-1 animate-box">

@@ -43,6 +43,17 @@
 	<script src="<?=base_url('assets/public/')?>js/jquery.min.js"></script>	
 	<!-- jQuery Easing -->
 	<script src="<?=base_url('assets/public/')?>js/jquery.easing.1.3.js"></script>
+	<style>
+		.fh5co-nav #fh5co-logo a {
+			font-size: 3.5rem;
+			color: #fff !important;
+		}
+		
+		.fh5co-nav #fh5co-logo {
+			margin-top: 0.5rem;
+			margin-right: 1rem;
+		}
+	</style>
 	</head>
 	<body>
 		
