@@ -35,7 +35,7 @@
 		padding: 1.5rem 2rem;
 		border-radius: 2rem;
 		color: #46464a;
-		width: 80%;
+		width: 90%;
     	float: left;
 	}
 
@@ -45,7 +45,7 @@
 		padding: 1.5rem 2rem;
 		border-radius: 2rem;
 		color: white;
-		width: 80%;
+		width: 90%;
     	float: right;
 	}
 
@@ -75,7 +75,7 @@
 	.testimony-pagination{
 		display: flex;
    		justify-content: center;
-		margin-top: 3rem;
+		margin-top: 2rem;
 	}
 
 	.testimony-pagination .pagination a {
