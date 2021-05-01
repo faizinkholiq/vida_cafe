@@ -50,11 +50,12 @@
 	}
 
 	.testimony-item.right .item-header{
-		float: right;
+		width: 100%;
 	}
 
 	.testimony-item.right .item-body{
 		float: left;
+		width: 100%;
 	}
 
 	.testimony-item .item-header{
