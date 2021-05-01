@@ -123,16 +123,7 @@
 		
 		<div class="row">
 			<div class="col-md-6 col-sm-12">
-				<div class="testimony-container" id="data-container">
-					<?php foreach($list_testimony as $key => $value): ?>
-						<div class="testimony-item <?=($key%2==0)? 'left' : 'right'; ?>" style="margin-bottom: 2rem;">
-							<div class="item-header">
-								<?=$value['name']?><span class="item-email">&lt;<?=$value['email']?>&gt;</span>
-							</div>
-							<div class="item-body"><?=$value['message']?></div>
-						</div>
-					<?php endforeach; ?>
-				</div>
+				<div class="testimony-container" id="data-container"></div>
 				<div class="testimony-pagination">
 					<div class="pagination" id="pagination-container"></div>
 				</div>
@@ -175,14 +166,16 @@
 let data = <?=json_encode($list_testimony); ?>
 
 $(document).ready(function(){
-	$('#pagination-container').pagination({
-		dataSource: data,
-		pageSize: 5,
-		callback: function(data, pagination) {
-			var html = simpleTemplating(data);
-        	$('#data-container').html(html);
-		}
-	})
+	if(data.length > 0) {
+		$('#pagination-container').pagination({
+			dataSource: data,
+			pageSize: 5,
+			callback: function(data, pagination) {
+				var html = simpleTemplating(data);
+				$('#data-container').html(html);
+			}
+		})
+	}
 });
 
 function simpleTemplating(data) {
