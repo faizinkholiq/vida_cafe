@@ -5,17 +5,18 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Vida Café & Bistro</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="freehtml5.co" />
+	<meta name="title" content="Vida Café & Bistro" />
+	<meta name="description" content="Favorite cafe in your heart ❤️" />
+	<meta name="keywords" content="cafe, vida cafe, vida cafe & bistro, vida cafe bistro, favorite cafe, vida restaurant, vida" />
+	<meta name="author" content="nnf-pro.com" />
   	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
+	<meta property="og:title" content="Vida Café & Bistro"/>
+	<meta property="og:image" content="<?=base_url('assets/images/profile/').$profile['logo'] ?>"/>
+	<meta property="og:url" content="https://www.instagram.com/vidacafe_bistro/"/>
+	<meta property="og:site_name" content="Vida Café & Bistro"/>
+	<meta property="og:description" content="Favorite cafe in your heart ❤️"/>
+	<meta name="twitter:title" content="Vida Café & Bistro" />
+	<meta name="twitter:image" content="<?=base_url('assets/images/profile/').$profile['logo'] ?>" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
@@ -115,7 +116,6 @@
 					<p>
 						<small class="block">&copy; 2020 <?=$profile['name'] ?>. All Rights Reserved.</small> 
 						<small class="block">Made with 🖤 <a href="http://nnf-pro.com" target="_blank">NNF Production</a></small>
-						<!-- <small class="block">Template by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a></small> -->
 					</p>
 					<p>
 						<ul class="fh5co-social-icons">
