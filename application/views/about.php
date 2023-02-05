@@ -71,3 +71,41 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="fh5co-timeline" style="padding:5em">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0">
+					<ul class="timeline animate-box">
+						<li class="timeline-heading text-center animate-box">
+							<div><h3>Our Teams</h3></div>
+						</li>
+						<li class="animate-box timeline-unverted">
+							<div class="timeline-badge"><i class="icon-genius"></i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading" style="margin-top: 4.7rem;">
+									<h3 class="timeline-title">The Founders Meet</h3>
+								</div>
+							</div>
+						</li><br/>
+						<li class="timeline-inverted animate-box">
+							<div class="timeline-badge"><i class="icon-genius"></i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading" style="margin-top: 4.7rem;">
+									<h3 class="timeline-title">Create A Restaurant</h3>
+								</div>
+							</div>
+						</li><br/>
+						<li class="animate-box timeline-unverted">
+							<div class="timeline-badge"><i class="icon-genius"></i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading" style="margin-top: 4.7rem;">
+									<h3 class="timeline-title">Added Employees</h3>
+								</div>
+							</div>
+						</li>
+			    	</ul>
+				</div>
+			</div>
+		</div>
+	</div>
