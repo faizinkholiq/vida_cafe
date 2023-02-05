@@ -51,6 +51,7 @@ class Reservation extends CI_Controller {
         $nd["name"] = $this->input->post('name');     
         $nd["contact"] = $this->input->post('contact');     
         $nd["people"] = $this->input->post('people');  
+        $nd["type"] = $this->input->post('type');  
         $nd["time"] = !empty($this->input->post('time'))? date_create($this->input->post('time'))->format('Y-m-d H:i:s') : null; 
         $nd['book_date'] = date('Y-m-d H:i:s'); 
 

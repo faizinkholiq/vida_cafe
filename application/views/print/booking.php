@@ -9,8 +9,8 @@
  
 <div id="container">
     <div class="title" style="width: 100%; text-align: center;">
-        <img height="20mm" style="margin-bottom:5px;" src="<?=base_url('assets/images/profile/').$profile['logo'] ?>" />
-        <h3>RESTAURANT BOOKING FORM <br/> <?=strtoupper($profile['name']); ?></h3>
+        <img height="15mm" style="margin-bottom:5px;" src="<?=base_url('assets/images/profile/').$profile['logo'] ?>" />
+        <h4>RESTAURANT BOOKING FORM <br/> <?=strtoupper($profile['name']); ?></h4>
     </div><br/>
     <div id="body">
         <table>
@@ -38,6 +38,11 @@
                 <td>Number of Guests</td>
                 <td width="20px">:</td>
                 <td><?=$detail['people']; ?></td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td width="20px">:</td>
+                <td><?=$detail['type']; ?></td>
             </tr>
         </table><br/>
         <p style="text-indent: 20px;">

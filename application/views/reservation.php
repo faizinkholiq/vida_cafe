@@ -152,6 +152,16 @@
 					</div>
 					<div class="row form-group">
 						<div class="col-md-12">
+							<label for="many">Type</label>
+							<select name="type" id="type" class="form-control custom_select">
+								<option value="Indoor">Indoor</option>
+								<option value="Outdoor">Outdoor</option>
+								<option value="Indoor + Outdoor">Indoor + Outdoor</option>
+							</select>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-md-12">
 							<label for="taskdatetime">When</label>
 							<input name="time" type="text" name="task-datetime" id="taskdatetime" class="form-control" required/>
 						</div>

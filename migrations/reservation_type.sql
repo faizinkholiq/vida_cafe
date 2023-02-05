@@ -1,0 +1,1 @@
+ALTER TABLE `reservation` ADD `type` ENUM('Indoor','Outdoor','Indoor + Outdoor') NOT NULL AFTER `book_date`;
