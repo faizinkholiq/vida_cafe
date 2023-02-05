@@ -34,7 +34,7 @@
 										width: 11em;
 										filter: grayscale(1);">
 							</div> -->
-							<h1 style="margin-top: 5rem;">The Best Café <em>&amp;</em> Restaurant <em>in</em> Your Heart <span style="font-size: 45px; color: #e9262c;">🖤</span></h1>
+							<h1 style="margin-top: 5rem;">Thes Best Café <em>&amp;</em> Restaurant <em>in</em> Your Heart <span style="font-size: 45px; color: #e9262c;">🖤</span></h1>
 							<!-- <div style="width:100%; border: dotted white; border-width: 0.5em 0 0;"></div> -->
 						</div>
 					</div>
