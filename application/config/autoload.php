@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | In order to keep the framework as light-weight as possible only the
 | absolute minimal resources are loaded by default. For example,
 | the database is not connected to automatically since no assumption
-| is made regarding whether you intend to use it.  This file lets
+| is made regarding whether you intend to use it.  This file letsf
 | you globally define which systems you would like loaded with every
 | request.
 |
@@ -58,7 +58,8 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session');
+$autoload['libraries'] = array('session', 'database');
+
 
 /*
 | -------------------------------------------------------------------
