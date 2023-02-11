@@ -62,11 +62,37 @@
 							<div class="timeline-badge"><i class="icon-genius"></i></div>
 							<div class="timeline-panel">
 								<div class="timeline-heading" style="margin-top: 4.7rem;">
-									<h3 class="timeline-title">Added Employees</h3>
+									<h3 class="timeline-title">Our Team</h3>
 								</div>
 							</div>
 						</li>
 			    	</ul>
+					<div class="row" style="margin-top:2rem">
+						<div class="col-md-4" style="text-align:center;">
+							<img style="width:25rem;" src="<?=base_url('assets/public/images/team/') ?>k_herman.jpg" />
+							<div style="color: white; margin-top:2rem;">
+								<h2 class="timeline-title" style="margin: 0; color: white;">Herman</h2>
+								<span class="timeline-title">As</span><br/>
+								<span class="timeline-title">Koki</span>
+							</div>
+						</div>
+						<div class="col-md-4" style="text-align:center;">
+							<img style="width:25rem;" src="<?=base_url('assets/public/images/team/') ?>b_rukun.jpg" />
+							<div style="color: white; margin-top:2rem;">
+								<h2 class="timeline-title" style="margin: 0; color: white;">Rukun</h2>
+								<span class="timeline-title">As</span><br/>
+								<span class="timeline-title">Barista</span>
+							</div>
+						</div>
+						<div class="col-md-4" style="text-align:center;">
+							<img style="width:25rem;" src="<?=base_url('assets/public/images/team/') ?>waiters.jpg" />
+							<div style="color: white; margin-top:2rem;">
+								<h2 class="timeline-title" style="margin: 0; color: white;">Devi, Edo, & Venti</h2>
+								<span class="timeline-title">As</span><br/>
+								<span class="timeline-title">Waiters</span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
