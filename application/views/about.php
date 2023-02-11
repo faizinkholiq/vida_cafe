@@ -89,7 +89,7 @@
 							<div style="color: white; margin-top:2rem;">
 								<h2 class="timeline-title" style="margin: 0; color: white;">Devi, Edo, & Venti</h2>
 								<span class="timeline-title">As</span><br/>
-								<span class="timeline-title">Waiters</span>
+								<span class="timeline-title">Waitress</span>
 							</div>
 						</div>
 					</div>
