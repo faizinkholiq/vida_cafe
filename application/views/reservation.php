@@ -145,15 +145,13 @@
 							<select name="people" id="many" class="form-control custom_select">
 								<option value="1">1</option>
 								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4+">4+</option>
-								<!-- <option value="> 10">> 10</option>
+								<option value="> 10">> 10</option>
 								<option value="> 20">> 20</option>
-								<option value="> 30">> 30</option> -->
+								<option value="> 30">> 30</option>
 							</select>
 						</div>
 					</div>
-					<!-- <div class="row form-group">
+					<div class="row form-group">
 						<div class="col-md-12">
 							<label for="many">Type</label>
 							<select name="type" id="type" class="form-control custom_select">
@@ -162,7 +160,7 @@
 								<option value="Indoor + Outdoor">Indoor + Outdoor</option>
 							</select>
 						</div>
-					</div> -->
+					</div>
 					<div class="row form-group">
 						<div class="col-md-12">
 							<label for="taskdatetime">When</label>
