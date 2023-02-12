@@ -105,7 +105,7 @@
 					<h4>Contact Information</h4>
 					<ul class="fh5co-footer-links"> 
 						<li><?=$profile['address'].', '.$profile['city'].' '.$profile['zip'] ?> <br> <?=$profile['state'] ?></li>
-						<li><a href="tel://081213417778">0812-1341-7778</a></li>
+						<li><a href="tel://087777408989">+62 877-7740-8989</a></li>
 					</ul>
 				</div>
 
