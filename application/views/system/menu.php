@@ -1,7 +1,7 @@
 <style>
 .my-scroller{
     width: 100%;
-    margin:0; 
+    margin:2rem 0; 
     padding: 0;
     width: 100%;
     overflow: auto;
@@ -69,6 +69,8 @@
     font-size: 13px;
     cursor: pointer;
     margin-right: 5px;
+    height: fit-content;
+    width: fit-content;
 }
 
 .my-span{
@@ -107,7 +109,15 @@
     </div>
 </div>
 <div class="row col-md-12" style="margin:0; padding:0;">
-    <div class="col-md-12" style="height: 3rem;">
+    <div class="col-md-12" style="
+        height: 3rem;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        flex-wrap: inherit;
+        height: auto;
+    ">
             <span class="my-span-filter" onclick="doFilter('category', 'all')" style="
                 color: #5d5c5c;
                 background: white;
