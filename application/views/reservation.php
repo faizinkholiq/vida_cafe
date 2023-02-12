@@ -142,13 +142,14 @@
 					<div class="row form-group">
 						<div class="col-md-12">
 							<label for="many">How Many People</label>
-							<select name="people" id="many" class="form-control custom_select">
+							<input type="number" class="form-control" id="many" name="people" min="1" value="1" required>
+							<!-- <select name="people" id="many" class="form-control custom_select">
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="> 10">> 10</option>
 								<option value="> 20">> 20</option>
 								<option value="> 30">> 30</option>
-							</select>
+							</select> -->
 						</div>
 					</div>
 					<div class="row form-group">

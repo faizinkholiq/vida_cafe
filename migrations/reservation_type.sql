@@ -1,2 +1,3 @@
 ALTER TABLE `reservation` ADD `type` ENUM('Indoor','Outdoor','Indoor + Outdoor') NOT NULL AFTER `book_date`;
 ALTER TABLE `reservation` CHANGE `people` `people` ENUM('1','2','3','4+','> 10','> 20','> 30') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '1';
+ALTER TABLE `reservation` CHANGE `people` `people` VARCHAR(2) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '1';
