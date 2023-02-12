@@ -101,7 +101,7 @@ class Menu extends CI_Controller {
      
         $origin_file = $_FILES['file'];
         $filename = $origin_file['name']; 
-        $config['upload_path'] = './assets/images/profile';
+        $config['upload_path'] = './assets/images/menu';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['file_name'] = $filename;
         $config['overwrite'] = true;
@@ -137,7 +137,7 @@ class Menu extends CI_Controller {
      
         $origin_file = $_FILES['file'];
         $filename = $origin_file['name']; 
-        $config['upload_path'] = './assets/images/profile';
+        $config['upload_path'] = './assets/images/menu';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['file_name'] = $filename;
         $config['overwrite'] = true;
