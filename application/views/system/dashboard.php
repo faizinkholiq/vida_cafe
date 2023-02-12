@@ -62,7 +62,7 @@
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="<?=base_url('assets/images/avatar/').$user['avatar']?>"
+                                            <img width="42" class="rounded-circle" src="<?= isset($user['avatar'])? base_url('assets/images/avatar/').$user['avatar'] : '' ?>"
                                                 alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>

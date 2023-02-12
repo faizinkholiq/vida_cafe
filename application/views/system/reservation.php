@@ -75,6 +75,7 @@
                             <th width="20%">Name</th>
                             <th class="text-center">Many (People)</th>
                             <th>Contact</th>
+                            <th>Status</th>
                             <th class="text-center">Approved</th>
                         </tr>
                     </thead>
@@ -87,9 +88,26 @@
                             <td><?=$value['name'] ?></td>
                             <td class="text-center"><?=$value['people'] ?></td>
                             <td><?=$value['contact'] ?></td>
+                            <td><?php 
+                                switch($value['status']){
+                                    case 'Approved':
+                                        echo '<span style="padding:4px 8px; font-weight:bold; font-size: 0.7rem; border-radius: 0.5rem; color:white; background:#20bf6b;">Disetujui</span>';
+                                        break;
+                                    case 'Refused':
+                                        echo '<span style="padding:4px 8px; font-weight:bold; font-size: 0.7rem; border-radius: 0.5rem; color:white; background:#eb3b5a;">Ditolak</span>';
+                                        break;
+                                    default:
+                                        echo '<span style="padding:4px 8px; font-weight:bold; font-size: 0.7rem; border-radius: 0.5rem; color:white; background:#f7b731;">Menunggu</span>';
+                                        break;
+                                }
+                            ?></td>
                             <td class="text-center">
-                                <a data-toggle="tooltip" title="Approved" href="<?=site_url('admin/reservation/approved/'.$value['id'].'/1')?>"><i class="fa fa-check fa-w-20 btn-icon-wrapper approve-btn <?=strtolower($value['status']) == 'approved'? 'approved' : '' ?>"> </i></a>
-                                <a data-toggle="tooltip" title="Refused" href="<?=site_url('admin/reservation/approved/'.$value['id'].'/2')?>"><i class="fa fa-times fa-w-20 btn-icon-wrapper approve-btn <?=strtolower($value['status']) == 'refused'? 'refused' : '' ?>"> </i></a>
+                                <?php if (!empty($value['status'])): ?>
+                                -
+                                <?php else: ?>
+                                <a data-toggle="tooltip" title="Approved" href="<?=site_url('admin/reservation/approved/'.$value['id'].'/1')?>"><i class="fa fa-check fa-w-20 btn-icon-wrapper approve-btn approved"> </i></a>
+                                <a data-toggle="tooltip" title="Refused" href="<?=site_url('admin/reservation/approved/'.$value['id'].'/2')?>"><i class="fa fa-times fa-w-20 btn-icon-wrapper approve-btn refused"> </i></a>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
