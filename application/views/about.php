@@ -77,19 +77,19 @@
 							</div>
 						</div>
 						<div class="col-md-4" style="text-align:center;">
-							<img style="width:25rem;" src="<?=base_url('assets/public/images/team/') ?>b_rukun.jpg" />
-							<div style="color: white; margin-top:2rem;">
-								<h2 class="timeline-title" style="margin: 0; color: white;">Rukun</h2>
-								<span class="timeline-title">As</span><br/>
-								<span class="timeline-title">Barista</span>
-							</div>
-						</div>
-						<div class="col-md-4" style="text-align:center;">
 							<img style="width:25rem;" src="<?=base_url('assets/public/images/team/') ?>waiters.jpg" />
 							<div style="color: white; margin-top:2rem;">
 								<h2 class="timeline-title" style="margin: 0; color: white;">Devi, Edo, & Venti</h2>
 								<span class="timeline-title">As</span><br/>
 								<span class="timeline-title">Waitress</span>
+							</div>
+						</div>
+						<div class="col-md-4" style="text-align:center;">
+							<img style="width:25rem;" src="<?=base_url('assets/public/images/team/') ?>b_rukun.jpg" />
+							<div style="color: white; margin-top:2rem;">
+								<h2 class="timeline-title" style="margin: 0; color: white;">Rukun</h2>
+								<span class="timeline-title">As</span><br/>
+								<span class="timeline-title">Barista</span>
 							</div>
 						</div>
 					</div>
