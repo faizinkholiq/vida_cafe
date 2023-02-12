@@ -65,7 +65,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Delete Menu</h5>
+                <h5 class="modal-title">Delete User</h5>
                 <button type="button" class="close" onclick="showModal('#deleteModal', false)">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -74,7 +74,7 @@
                 Are you sure to delete this menu?
             </div>
             <div class="modal-footer">
-                <form action="<?=site_url('admin/menu/delete')?>" method="get">
+                <form action="<?=site_url('admin/user/delete')?>" method="get">
                     <input id="deleted_id" type="hidden" name="id">
                     <button type="button" class="btn btn-secondary"
                         onclick="showModal('#deleteModal', false)">Close</button>

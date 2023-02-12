@@ -150,6 +150,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a id="mn_category" href="<?=site_url('admin/category')?>">
+                                    <i class="metismenu-icon pe-7s-coffee"></i>
+                                    Category Menu
+                                </a>
+                            </li>
+                            <li>
                                 <a id="mn_gallery" href="<?=site_url('admin/gallery')?>">
                                     <i class="metismenu-icon pe-7s-photo-gallery"></i>
                                     Gallery
