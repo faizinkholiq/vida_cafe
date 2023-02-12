@@ -182,6 +182,8 @@ class Menu extends CI_Controller {
 
         if(!empty($id) && $detail){
             if($this->menu_model->delete($id)){
+                $path_to_file = './assets/images/menu/'.$detail['photo'];
+                @unlink($path_to_file);
                 $data = [
                     'success' => 1,
                     'message' => 'Delete data success ',

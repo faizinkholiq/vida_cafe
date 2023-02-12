@@ -77,6 +77,8 @@ class Gallery extends CI_Controller {
 
         if(!empty($id) && $detail){
             if($this->gallery_model->delete($id)){
+                $path_to_file = './assets/images/gallery/'.$detail['source'];
+                @unlink($path_to_file);
                 $data = [
                     'success' => 1,
                     'message' => 'Delete data success ',
