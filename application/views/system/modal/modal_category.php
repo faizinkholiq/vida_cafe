@@ -16,11 +16,11 @@
                     </div>
                     <div class="position-relative form-group">
                         <label for="tbName" class="">Background</label>
-                        <input name="bgcolor" id="tbBgColor" type="color" class="mb-2 form-control">
+                        <input name="bgcolor" id="tbBgColor" type="color" class="mb-2 form-control" value="#ffffff">
                     </div>
                     <div class="position-relative form-group">
                         <label for="tbName" class="">Font</label>
-                        <input name="fgcolor" id="tbFgColor" type="color" class="mb-2 form-control">
+                        <input name="fgcolor" id="tbFgColor" type="color" class="mb-2 form-control" value="#000000">
                     </div>
                 </div>
                 <div class="modal-footer">
