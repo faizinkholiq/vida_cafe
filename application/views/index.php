@@ -1,4 +1,4 @@
-	<style>
+<style>
 		.my-identity-logo{
 			width: 100%;
 			display: flex;
@@ -153,7 +153,7 @@
 		</div>
 	</div>
 	
-	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(<?=base_url('assets/public/')?>images/bc.png);" data-stellar-background-ratio="0.5">
+	<div id="fh5co-started" class="fh5co-section animate-box" style="background-image: url(<?=base_url('assets/public/')?>images/bc.jpg);" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row animate-box">
